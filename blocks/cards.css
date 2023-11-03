@@ -1,0 +1,35 @@
+.cards {
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+}
+
+.card__list {
+  list-style: none;
+  display: grid;
+  grid-template-areas:
+    "card card card"
+    "card card card";
+  row-gap: 17px;
+  column-gap: 17px;
+  padding-left: 0;
+}
+
+.card__description {
+  display: flex;
+  background-color: #fff;
+  color: black;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card__like-button {
+  background: transparent url(../Images/Group.svg) center no-repeat;
+  width: 21px;
+  height: 18px;
+  border: 0;
+}
