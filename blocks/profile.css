@@ -19,6 +19,7 @@
   width: 24px;
   height: 24px;
   grid-area: button;
+  border-color: #fff;
 }
 
 .profile__add-button {
@@ -26,6 +27,7 @@
   width: 150px;
   height: 50px;
   margin-left: auto;
+  border-color: #fff;
 }
 
 .profile__title {
