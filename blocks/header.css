@@ -1,4 +1,7 @@
 .header {
   margin-top: 45px;
-  background-color: #000000;
+  height: 74px;
+  border-color: #545454;
+  border-bottom: 1px solid;
+  /* padding-top: 41px; */
 }
