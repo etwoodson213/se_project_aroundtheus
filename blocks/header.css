@@ -1,7 +1,7 @@
 .header {
   margin-top: 45px;
+  max-width: 880px;
   height: 74px;
-  border-color: #545454;
-  border-bottom: 1px solid;
+  border-bottom: 1px #545454 solid;
   /* padding-top: 41px; */
 }

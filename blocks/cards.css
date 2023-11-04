@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 282px);
   justify-content: center;
-  grid-gap: 20px 17px;
+  gap: 20px 17px;
   padding-left: 0;
 }
 
@@ -29,6 +29,8 @@
   padding-right: 20px;
   align-items: center;
   justify-content: space-between;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .card__title {
@@ -54,7 +56,7 @@
   border: 0;
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
   .card__list {
     padding-top: 110px;
   }
