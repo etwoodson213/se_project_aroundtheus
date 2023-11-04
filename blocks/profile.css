@@ -72,8 +72,10 @@
     text-align: center;
   }
 
-  .profile__add-button {
-    width: 16px;
-    height: 16px;
-  }
+  /* .profile__add-button {
+    width: 282px;
+    background: transparent url(../Images/Vector.svg) center no-repeat;
+    height: 50px;
+    margin: 0 auto;
+  } */
 }
