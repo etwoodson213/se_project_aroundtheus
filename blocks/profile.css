@@ -2,8 +2,9 @@
   display: flex;
   align-items: center;
   max-width: 880px;
-  max-height: 120px;
+  /* height: 120px; */
   padding-top: 40px;
+  padding: 0 19px;
 }
 
 .profile__info {
@@ -24,11 +25,12 @@
 }
 
 .profile__add-button {
-  background: transparent url(../Images/add-icon.svg) center no-repeat;
+  background: transparent url(../Images/add\ icon\ 2.svg) center no-repeat;
   width: 150px;
   height: 50px;
   margin-left: auto;
   border: 2px solid #fff;
+  border-radius: 2px;
 }
 
 .profile__title {
@@ -57,9 +59,10 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .profile {
     flex-direction: column;
+    height: 362px;
   }
   .profile__info {
     display: flex;

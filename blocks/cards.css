@@ -1,7 +1,7 @@
 .cards {
   /* display: flex;
   align-items: center; */
-  padding-top: 72px;
+  /* padding-top: 72px; */
 }
 
 .card {
@@ -56,8 +56,8 @@
   border: 0;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 600px) {
   .card__list {
-    padding-top: 110px;
+    margin: 32px;
   }
 }
