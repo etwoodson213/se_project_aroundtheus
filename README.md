@@ -8,14 +8,13 @@
   
 **Intro**
   
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.  
+The project "Around The U.S." was created with the aim to utilize the skills acquired from past projects and to learn new ones. This particular project heavily relied on flexbox, grid, UL, and media queries, which were blended together to develop a responsive and adaptable website that can be viewed on various devices. The video below demonstrates how the website looks on different screens.The project "Around The U.S." was created with the aim to utilize the skills acquired from past projects and to learn new ones. This particular project heavily relied on flexbox, grid, UL, and media queries, which were blended together to develop a responsive and adaptable website that can be viewed on various devices. The video below demonstrates how the website looks on different screens.
   
 **Figma**  
   
 * [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)  
   
 **Images**  
-  
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
-  
-Good luck and have fun!
+
+https://github.com/etwoodson213/se_project_aroundtheus/assets/147011960/bc407747-7eb2-4f22-ad88-781bbf122542
+
