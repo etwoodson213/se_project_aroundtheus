@@ -58,6 +58,6 @@
 
 @media screen and (max-width: 600px) {
   .card__list {
-    margin: 32px;
+    margin-top: 0;
   }
 }
