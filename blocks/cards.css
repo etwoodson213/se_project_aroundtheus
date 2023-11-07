@@ -52,7 +52,7 @@
   border: 0;
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 480px) {
   .card__list {
     justify-content: center;
     flex-direction: column;
@@ -62,4 +62,4 @@
     width: 244px;
   }
   
-}
+} */

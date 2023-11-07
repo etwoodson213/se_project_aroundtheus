@@ -58,9 +58,8 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 919px) {
+@media screen and (max-width: 800px){
   .profile {
-    flex-direction: column;
     gap: 25px;
   }
   .profile__info {
@@ -70,6 +69,10 @@
     width: 100%;
     padding: 0 19px;
     margin-right: 62px;
+  }
+
+  .profile__title {
+    font-size: 32px;
   }
 
   .profile__subtitle {
@@ -82,10 +85,21 @@
     margin: 0;
   }
 
-@media screen and (max-width: 320px) {
+  .profile__avatar {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
   .profile {
-    gap: 30px;
+    gap: 14px;
     padding: 40px 0 37px;
+    flex-direction: column;
+
+  }
+
+  .profile__avatar {
+    padding-bottom: 12px;
   }
 
   .profile__title {

@@ -5,6 +5,11 @@
   border-bottom: 1px rgb(84, 84, 84) solid;
 }
 
+@media  and (max-width: 800px) {
+  
+  
+}
+
 @media screen and (max-width: 320px) {
   .header {
     margin-top: 28px;
