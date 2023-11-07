@@ -1,9 +1,8 @@
 .header {
   margin-top: 45px;
   max-width: 880px;
-  height: 74px;
-  border-bottom: 1px #545454 solid;
-  /* padding-top: 41px; */
+  min-height: 74px;
+  border-bottom: 1px rgb(84, 84, 84) solid;
 }
 
 
@@ -11,7 +10,7 @@
 @media screen and (max-width: 320px) {
   .header {
     margin: 28px 0;
-    height: 100px;  
+    min-height: 100px;  
   }
 
   .header__image {

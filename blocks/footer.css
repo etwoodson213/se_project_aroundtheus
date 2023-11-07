@@ -1,12 +1,11 @@
 .footer {
   padding-top: 67px;
-  width: 318px;
-  height: 18px;
   color: #545454;
-  font-family: Inter;
+  font-family: Inter, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  font-size: 18px;
+  line-height: 1.5px;
   margin: 0;
   margin-left: 200px;
   margin-right: 762px;
@@ -16,5 +15,7 @@
   .footer {
     margin-left: 19px;
     padding-top: 47px;
+    font-size: 14px;
+    line-height: 1.5px;
   }
 }

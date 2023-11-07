@@ -82,13 +82,8 @@
     margin: 0;
   }
 
-  .profile__avatar {
-  }
-}
-
 @media screen and (max-width: 320px) {
   .profile {
-    flex-direction: column;
     gap: 30px;
     padding: 40px 0 37px;
   }
@@ -99,22 +94,14 @@
     font-family: Inter;
     font-size: 22px;
     font-style: normal;
-    font-weight: 500;
     margin-left: 62px;
   }
 
   .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
     /* padding: 0 19px; */
-    margin-right: 62px;
   }
 
   .profile__subtitle {
-    width: 100%;
-    text-align: center;
     font-size: 14px;
     margin-left: 43px;
   }
