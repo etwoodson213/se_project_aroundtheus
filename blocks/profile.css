@@ -91,7 +91,7 @@
   .profile__title {
     color: #fff;
     text-align: center;
-    font-family: Inter;
+    font-family: Inter, Arial, Helvetica, sans-serif;
     font-size: 22px;
     font-style: normal;
     margin-left: 62px;
