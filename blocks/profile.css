@@ -23,6 +23,12 @@
   margin: 15px 0 9px 18px;
 }
 
+.profile__edit-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+
+}
+
 .profile__add-button {
   background: transparent url(../Images/add\ icon\ 2.svg) center no-repeat;
   width: 150px;
@@ -30,6 +36,12 @@
   margin-left: auto;
   border: 2px solid #fff;
   border-radius: 2px;
+}
+
+.profile__add-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+
 }
 
 .profile__title {
@@ -58,7 +70,7 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
   .profile {
     gap: 25px;
   }
@@ -95,7 +107,6 @@
     gap: 14px;
     padding: 40px 0 37px;
     flex-direction: column;
-
   }
 
   .profile__avatar {
