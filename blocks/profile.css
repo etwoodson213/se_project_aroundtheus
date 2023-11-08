@@ -72,7 +72,7 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 8000px) {
   .profile {
     gap: 25px;
     max-width: 730px;
