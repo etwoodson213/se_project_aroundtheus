@@ -26,7 +26,6 @@
 .profile__edit-button:hover {
   opacity: 0.5;
   cursor: pointer;
-
 }
 
 .profile__add-button {
@@ -41,7 +40,6 @@
 .profile__add-button:hover {
   opacity: 0.5;
   cursor: pointer;
-
 }
 
 .profile__title {
@@ -50,6 +48,10 @@
   grid-area: title;
   line-height: 1.14;
   margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 373px;
 }
 
 .profile__subtitle {
@@ -73,6 +75,7 @@
 @media screen and (max-width: 800px) {
   .profile {
     gap: 25px;
+    max-width: 730px;
   }
   .profile__info {
     display: flex;
@@ -84,12 +87,11 @@
   }
 
   .profile__title {
-    font-size: 32px;
+    font-size: 31px;
   }
 
   .profile__subtitle {
     width: 100%;
-    text-align: center;
   }
 
   .profile__add-button {
@@ -120,6 +122,7 @@
     font-size: 22px;
     font-style: normal;
     margin-left: 62px;
+    max-width: 283px;
   }
 
   .profile__info {
@@ -129,6 +132,8 @@
   .profile__subtitle {
     font-size: 14px;
     margin-left: 43px;
+    width: 12%;
+    margin-bottom: 22px;
   }
 
   .profile__edit-button {

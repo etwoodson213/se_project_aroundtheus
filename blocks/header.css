@@ -2,14 +2,13 @@
   margin-top: 45px;
   max-width: 880px;
   min-height: 74px;
-  border-bottom: 1px rgb(84, 84, 84) solid;
+  border-bottom: 1px rgba(84, 84, 84, 0.7) solid;
 }
 
-@media  and (max-width: 800px) {
-  .header__image {
-    
+@media screen and (max-width: 800px) {
+  .header {
+    max-width: 730px;
   }
-  
 }
 
 @media screen and (max-width: 320px) {
@@ -25,5 +24,4 @@
     width: 126px;
     margin-bottom: 32px;
   }
-  
 }

@@ -4,9 +4,19 @@
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.5px;
+  line-height: normal;
   margin-top: 67px;
   margin-bottom: 60px;
+}
+
+.footer__copyright {
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    margin-left: 100px;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -15,6 +25,6 @@
     margin-top: 47px;
     margin-bottom: 36px;
     font-size: 14px;
-    line-height: 1.5px;
+    line-height: normal;
   }
 }
