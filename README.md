@@ -12,7 +12,8 @@ The project "Around The U.S." was created with the aim to utilize the skills acq
   
 **Figma**  
   
-* [Link to the project on Figma](https://etwoodson213.github.io/se_project_aroundtheus/)  
+* [Link to the project on Figma](https://www.figma.com/file/Es8zZP3ARGH9JGcw60i3OD/Sprint-3_-Around-the-US?node-id=6432%3A201&mode=dev)
+* [Link to my project](https://etwoodson213.github.io/se_project_aroundtheus/) 
   
 **Images**  
 
