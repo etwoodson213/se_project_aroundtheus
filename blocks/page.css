@@ -22,7 +22,7 @@
     max-width: calc(100% - 20%);
   }
 } */
-@media screen and (max-width: 879px) {
+@media screen and (max-width: 621px) {
   .page__section {
     max-width: calc(100% - 20%);
 }

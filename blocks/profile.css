@@ -3,7 +3,7 @@
   align-items: center;
   max-width: 880px;
   padding-top: 40px;
-  padding: 37px 19px 50px;
+  padding: 37px 0 50px;
 }
 
 .profile__info {
@@ -72,47 +72,42 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 8000px) {
-  .profile {
-    gap: 25px;
-    max-width: 730px;
-  }
+@media screen and (max-width: 768px) {
   .profile__info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    padding: 0 19px;
-    margin-right: 62px;
+    grid-template-columns: auto;
   }
 
   .profile__title {
     font-size: 31px;
-  }
-
-  .profile__subtitle {
-    width: 100%;
-  }
-
-  .profile__add-button {
-    width: 282px;
-    margin: 0;
+    max-width: 340px;
   }
 
   .profile__avatar {
-    margin-right: 0;
+    margin: 0 10px 0 0;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 621px) {
   .profile {
-    gap: 14px;
-    padding: 40px 0 37px;
+    /* gap: 14px; */
+    padding: 43px 0 21px;
     flex-direction: column;
+    text-align: center;
+  }
+  .profile__info {
+    /* padding: 0 19px; */
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 29px 0 33px 0;
+    max-width: 320px;
+    gap: 14px;
   }
 
   .profile__avatar {
-    padding-bottom: 12px;
+    /* padding-bottom: 12px; */
+    margin-right: 0;
   }
 
   .profile__title {
@@ -121,26 +116,27 @@
     font-family: Inter, Arial, Helvetica, sans-serif;
     font-size: 22px;
     font-style: normal;
-    margin-left: 62px;
+    min-width: 201px;
     max-width: 283px;
   }
 
-  .profile__info {
-    /* padding: 0 19px; */
-  }
-
   .profile__subtitle {
+    width: 100%;
     font-size: 14px;
-    margin-left: 43px;
-    width: 12%;
-    margin-bottom: 22px;
+    line-height: 14px;
+    max-width: 282px;
   }
 
   .profile__edit-button {
     width: 18px;
     height: 18px;
-    margin-left: 10px;
-    margin-top: 4px;
-    margin-bottom: 14px;
+    background-size: 8px 8px;
+    margin-right: 0;
+  }
+
+  .profile__add-button {
+    width: 100%;
+    max-width: 282px;
+    margin: 0 auto;
   }
 }
