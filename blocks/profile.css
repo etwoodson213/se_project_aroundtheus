@@ -132,6 +132,7 @@
     height: 18px;
     background-size: 8px 8px;
     margin-right: 0;
+    margin: 4px 0 0 10px;
   }
 
   .profile__add-button {
