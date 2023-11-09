@@ -19,7 +19,10 @@
     margin-top: 47px;
     margin-bottom: 36px;
     font-size: 14px;
-    line-height: normal;
     max-width: 480px;
+  }
+
+  .footer__copyright {
+    margin-left: 19px;
   }
 }

@@ -94,13 +94,11 @@
 
 @media screen and (max-width: 621px) {
   .profile {
-    /* gap: 14px; */
-    padding: 43px 0 21px;
+    padding: 43px 0 36px;
     flex-direction: column;
     text-align: center;
   }
   .profile__info {
-    /* padding: 0 19px; */
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -111,7 +109,6 @@
   }
 
   .profile__avatar {
-    /* padding-bottom: 12px; */
     margin-right: 0;
   }
 
@@ -122,7 +119,7 @@
     font-size: 22px;
     font-style: normal;
     min-width: 201px;
-    max-width: 283px;
+    max-width: 200px;
   }
 
   .profile__subtitle {
@@ -136,7 +133,7 @@
     width: 18px;
     height: 18px;
     margin-right: 0;
-    margin: 4px 0 0 10px;
+    margin: 4px 0 0;
   }
 
   .profile__add-button {
