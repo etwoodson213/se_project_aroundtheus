@@ -14,6 +14,7 @@
   grid-template-columns: minmax(auto, 373px) auto;
 }
 
+
 .profile__edit-button {
   background: transparent url(../Images/edit-icon.svg) center no-repeat;
   width: 24px;
@@ -24,7 +25,7 @@
 }
 
 .profile__edit-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -38,7 +39,7 @@
 }
 
 .profile__add-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 
@@ -61,6 +62,10 @@
   line-height: normal;
   margin: 0;
   grid-area: description;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 415px;
 }
 
 .profile__avatar {
