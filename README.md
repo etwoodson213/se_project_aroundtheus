@@ -17,5 +17,5 @@ The project "Around The U.S." was created with the aim to utilize the skills acq
   
 **Images**  
 
-https://github.com/etwoodson213/se_project_aroundtheus/assets/147011960/bc407747-7eb2-4f22-ad88-781bbf122542
+[Demo of website in motion](https://github.com/etwoodson213/se_project_aroundtheus/assets/147011960/c523a2d8-7384-4cab-a262-ce8a020ad976)
 
