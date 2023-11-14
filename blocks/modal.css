@@ -15,9 +15,20 @@
   background-color: #fff;
   margin: 0 auto;
   padding: 36px 36px 0;
-  width: 430px;
-  height: 330px;
+  max-width: 430px;
+  max-height: 330px;
   border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+
+@media screen and (max-width: 621px) {
+  .modal__container {
+    max-width: calc(100% - 20%);
+    padding: 25px 22px 0;
+    max-height: 31%;
+  }
 }
 
 .modal__close {
@@ -31,6 +42,20 @@
   right: -45px;
   background-size: contain;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.modal__close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 621px) {
+  .modal__close {
+    bottom: calc(100% + 26px);
+    left: calc(100% + -26px);
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .modal__form {
@@ -48,6 +73,12 @@
   padding-bottom: 54px;
 }
 
+@media screen and (max-width: 621px) {
+  .modal__heading {
+    font-size: 18px;
+  }
+}
+
 .modal__input {
   border: rgba(0, 0, 0, 0.2);
   border-style: solid;
@@ -59,11 +90,29 @@
   margin-bottom: 29.74px;
 }
 
+@media screen and (max-width: 621px) {
+  .modal__input {
+    font-size: 14px;
+  }
+}
+
 .modal__button {
-    margin-top: 18.26px;
-    background-color: #000;
-    height: 51px;
-    border-style: none;
-    border-radius: 2px;
-    color: #fff;
+  margin-top: 18.26px;
+  background-color: #000;
+  height: 51px;
+  border-style: none;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.modal__button:hover {
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 621px) {
+  .modal__button {
+    font-size: 14px;
+  }
 }
