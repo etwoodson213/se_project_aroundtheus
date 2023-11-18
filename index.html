@@ -6,6 +6,9 @@
     <title>Around The U.S.</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
+
+<!-- Header -->
+
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
@@ -15,6 +18,8 @@
           class="header__image"
         />
       </header>
+
+<!-- Profile -->
 
       <main class="content">
         <section class="profile page__section">
@@ -34,6 +39,8 @@
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
+
+<!-- Cards -->
 
         <section class="card page__section">
           <ul class="card__list">
@@ -112,14 +119,21 @@
         </section>
       </main>
 
+<!-- Footer -->
       <footer class="footer page__section">
         <p class="footer__copyright">© 2022 Around The U.S.</p>
       </footer>
     </div>
 
-    <div class="modal" id="profile-edit-modal">
+<!-- Modal -->
+
+<div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close"></button>
+        <button
+          type="button"
+          class="modal__close"
+          id="profile-modal-btn"
+        ></button>
         <form class="modal__form">
           <h3 class="modal__heading">Edit Profile</h3>
           <input

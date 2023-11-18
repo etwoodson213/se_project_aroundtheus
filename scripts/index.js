@@ -31,16 +31,19 @@ const initialCards = [
 
 ];
 
-// console.log(initialCards);
-
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    Elements                                    ||
 // ! ||--------------------------------------------------------------------------------||
 
 const profileEditBtn = document.querySelector("#profile-edit-btn");
-const profileEditModal = document.querySelector("#profile-edit-modal");   
-
+const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileModalBtn = document.querySelector("#profile-modal-btn");
+    
 profileEditBtn.addEventListener("click", () => {
-    profileEditModal.classList.add("modal_opened");
-})
+    profileEditModal.classList.add("modal__opened");
+});
+
+profileModalBtn.addEventListener("click", () => {
+    profileEditModal.classList.remove("modal__opened");
+});
 
