@@ -31,7 +31,8 @@
   .modal__container {
     max-width: calc(100% - 20%);
     padding: 25px 22px 0;
-    max-height: 31%;
+    height: 322px;
+    top: -322px;
   }
 }
 
