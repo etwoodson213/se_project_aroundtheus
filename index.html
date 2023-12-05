@@ -150,7 +150,9 @@
             class="modal__input"
             id="modal-input-subtitle"
           />
-          <button type="submit" class="modal__button" id="modal-btn-save">Save</button>
+          <button type="submit" class="modal__button" id="modal-btn-save">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -180,7 +182,9 @@
             class="modal__input modal__input_type_link"
             id="modal-input-link"
           />
-          <button type="submit" class="modal__button" id="modal-btn-save">Save</button>
+          <button type="submit" class="modal__button" id="modal-btn-save">
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -188,11 +192,10 @@
 
     <template id="card-template">
       <li class="card__item">
-        <img
-          src=""
-          alt=""
-          class="card__image"
-        />
+        <div class="image">
+        <button type="submit" class="delete__card_button"></button>
+        <img src="" alt="" class="card__image" />
+      </div>
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button type="button" class="card__like-button"></button>
@@ -202,3 +205,9 @@
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
+
+<!-- <button
+  type="submit"
+  class="delete__card_button"
+  id="delete-card-button"
+></button> -->

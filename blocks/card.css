@@ -61,6 +61,24 @@
   background-image: url(../Images/Union.png);
 }
 
+.delete__card_button {
+  background: url(../Images/Trash.svg);
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 20px;
+  left: 240px;
+  border: 0;
+}
+
+.delete__card_button:hover {
+  opacity: 0.6;
+}
+
+.image {
+  position: relative;
+}
+
 /* @media screen and (max-width: 480px) {
   .card__list {
     justify-content: center;
