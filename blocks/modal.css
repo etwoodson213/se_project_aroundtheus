@@ -51,7 +51,7 @@
 }
 
 .modal__close:hover {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 621px) {
@@ -113,7 +113,29 @@
 }
 
 .modal__button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
+}
+
+.modal__picture {
+  width: 433px;
+  height: 540px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.modal__picture-close {
+  background-image: url(../Images/Close\ Icon.svg);
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: -45px;
+  right: -45px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 621px) {

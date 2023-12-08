@@ -164,7 +164,7 @@
         <button
           type="button"
           class="modal__close"
-          id="add-new-close-btn"
+          id="modal-close-btn"
         ></button>
         <form class="modal__form">
           <h3 class="modal__heading">New Place</h3>
@@ -189,12 +189,26 @@
       </div>
     </div>
 
+    <!-- Modal Picture Preview -->
+    <div class=" modal modal__picture" id="modal-picture">
+      <div class="modal__picture-container">
+        <button
+          type="button"
+          class="card__image"
+          id="modal-picture-close-btn"
+        ></button>
+        <button
+        type="button"
+        class="modal__picture-close"
+        id="modal-close-btn"></button>
+      </div>
 
+    <!-- Card List Template -->
     <template id="card-template">
       <li class="card__item">
         <div class="image">
         <button type="submit" class="delete__card_button"></button>
-        <img src="" alt="" class="card__image" />
+        <img src="" alt="" class="card__image" id="card__image-btn"/>
       </div>
         <div class="card__description">
           <h2 class="card__title"></h2>

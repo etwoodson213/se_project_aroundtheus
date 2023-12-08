@@ -45,6 +45,10 @@
   border-radius: 10px;
 }
 
+.card__image:hover {
+  cursor: pointer;
+}
+
 .card__like-button {
   background: transparent url(../Images/Group.svg) center no-repeat;
   width: 21px;
@@ -78,6 +82,8 @@
 .image {
   position: relative;
 }
+
+
 
 /* @media screen and (max-width: 480px) {
   .card__list {
