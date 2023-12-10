@@ -45,6 +45,12 @@
   border-radius: 10px;
 }
 
+.card__image_opened {
+  /* width: 433px;
+  height: 540px; */
+
+}
+
 .card__image:hover {
   cursor: pointer;
 }
@@ -65,7 +71,7 @@
   background-image: url(../Images/Union.png);
 }
 
-.delete__card_button {
+.delete__card-button {
   background: url(../Images/Trash.svg);
   width: 18px;
   height: 19.3px;
@@ -75,8 +81,9 @@
   border: 0;
 }
 
-.delete__card_button:hover {
+.delete__card-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .image {
