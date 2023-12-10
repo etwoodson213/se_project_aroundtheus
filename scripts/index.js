@@ -57,6 +57,9 @@ const cardTemplate =
 const cardListEl = document.querySelector(".card__list");
 const modalPicture = document.querySelector("#modal-picture");
 
+const modalImage = modalPicture.querySelector(".modal__picture");
+const cardCaption = document.querySelector("#card-title")
+
 //profile modal popup
 profileEditBtn.addEventListener("click", () => openPopup(profileEditModal));
 profileTitleInput.value = profileTitle.textContent;
@@ -100,10 +103,17 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+//create new card & modal picture preview
 function createCard(cardData) {
   const cardElement = getCardElement(cardData);
   const cardImageEl = cardElement.querySelector(".card__image");
-  cardImageEl.addEventListener("click", () => openPopup(modalPicture));
+  cardImageEl.addEventListener("click", () => {
+    // set the src of the picture element
+    modalImage.src = cardData.link;
+    cardCaption = profileTitleInput;
+    // set the other things
+    openPopup(modalPicture);
+  });
   cardListEl.prepend(cardElement);
 }
 
@@ -139,8 +149,10 @@ const addCardFormElement = addNewCardModal.querySelector(".modal__input");
 const cardTitleInput = addNewCardModal.querySelector(
   ".modal__input_type_title"
 );
+
 const cardLinkInput = addNewCardModal.querySelector(".modal__input_type_link");
 
+//add new card popup
 addNewCardModal.addEventListener("submit", (evt) => {
   evt.preventDefault();
   const name = cardTitleInput.value;
@@ -160,10 +172,6 @@ modal__picture = document.querySelector("#modal-picture");
 const modalPictureClose = document.querySelector(".modal__picture-close");
 modalPictureClose.addEventListener("click", () => closePopup(modal__picture));
 
-// function openModalPicture(modal__picture) {
-//   modal.classList.add(modal__picture);
-// }
-
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
 // ! ||--------------------------------------------------------------------------------||
@@ -176,10 +184,8 @@ const cardLikeBtn = document.querySelectorAll(".card__like-button");
 //card delete button
 const cardDeleteBtn = document.querySelectorAll(".delete__card-button");
 
-cardDeleteBtn.forEach(button => {
+cardDeleteBtn.forEach((button) => {
   button.addEventListener("click", () => {
     button.closest(".card__item").remove();
   });
 });
-
-
