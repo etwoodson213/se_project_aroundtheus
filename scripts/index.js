@@ -57,8 +57,8 @@ const cardTemplate =
 const cardListEl = document.querySelector(".card__list");
 const modalPicture = document.querySelector("#modal-picture");
 
-const modalImage = modalPicture.querySelector(".modal__picture");
-const cardCaption = document.querySelector("#card-title")
+const modalImage = document.querySelector(".card__image");
+const cardCaption = document.querySelector(".card__title")
 
 //profile modal popup
 profileEditBtn.addEventListener("click", () => openPopup(profileEditModal));
@@ -103,16 +103,18 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+const modalPopup = document.querySelector(".modal__popup")
+ const modalPopupCaption = document.querySelector(".modal__popup-caption")
+
 //create new card & modal picture preview
 function createCard(cardData) {
   const cardElement = getCardElement(cardData);
   const cardImageEl = cardElement.querySelector(".card__image");
   cardImageEl.addEventListener("click", () => {
-    // set the src of the picture element
-    modalImage.src = cardData.link;
-    cardCaption = profileTitleInput;
-    // set the other things
+    modalPopup.src = cardData.link;
+    modalPopupCaption.textContent = cardData.name;
     openPopup(modalPicture);
+    closePopup
   });
   cardListEl.prepend(cardElement);
 }

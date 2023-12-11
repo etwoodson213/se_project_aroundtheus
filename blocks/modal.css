@@ -116,26 +116,37 @@
   opacity: 0.8;
 }
 
+.modal__popup {
+  max-width: 433px;
+  max-height: 540px;
+}
+
+.modal__popup-caption {
+  font-weight: 400;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 14.52px;
+}
+
 .modal__picture {
-  width: 433px;
-  height: 540px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal__picture-close {
   background-image: url(../Images/Close\ Icon.svg);
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
+  /* bottom: calc(100% + 5px); */
+  /* left: calc(100% + 5px); */
   border: none;
   background-color: transparent;
   position: absolute;
-  top: -45px;
-  right: -45px;
+  top: 285px;
+  right: 565px;
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
 
 @media screen and (max-width: 621px) {
