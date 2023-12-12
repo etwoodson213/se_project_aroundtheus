@@ -1,6 +1,7 @@
 .modal {
   display: flex;
   position: absolute;
+  justify-content: center;
   top: 0;
   bottom: 0;
   left: 0;
@@ -160,11 +161,6 @@
   font-size: 12px;
   font-style: normal;
   line-height: 14.52px;
-}
-
-.modal__picture {
-  justify-content: center;
-  align-items: center;
 }
 
 .modal__picture-close {
