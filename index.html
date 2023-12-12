@@ -182,7 +182,7 @@
             class="modal__input modal__input_type_link"
             id="modal-input-link"
           />
-          <button type="submit" class="modal__button" id="modal-btn-save">
+          <button type="submit" class="modal__button" id="modal-btn-saves">
             Save
           </button>
         </form>
@@ -190,23 +190,25 @@
     </div>
 
     <!-- Modal Picture Preview -->
-    <div class=" modal modal__picture" id="modal-picture">
+    <div class="modal modal__picture" id="modal-picture">
       <div class="modal__picture-container">
         <button
-        type="button"
-        class="modal__picture-close"
-        id="modal-close-btn"></button>
-        <img src="" alt="" class="modal__popup">
+          type="button"
+          class="modal__picture-close"
+          id="modal-close-btns"
+        ></button>
+        <img src="#" alt="#" class="modal__popup" />
         <h2 class="modal__popup-caption">""</h2>
       </div>
+    </div>
 
     <!-- Card List Template -->
     <template id="card-template">
       <li class="card__item">
         <div class="image">
-        <button type="button" class="delete__card-button"></button>
-        <img src="" alt="" class="card__image" id="card__image-btn"/>
-      </div>
+          <button type="button" class="delete__card-button"></button>
+          <img src="" alt="" class="card__image" id="card__image-btn" />
+        </div>
         <div class="card__description">
           <h2 class="card__title" id="card-title"></h2>
           <button type="button" class="card__like-button"></button>
