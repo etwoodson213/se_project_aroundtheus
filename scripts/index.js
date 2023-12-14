@@ -61,9 +61,19 @@ const modalImage = document.querySelector(".card__image");
 const cardCaption = document.querySelector(".card__title");
 
 //profile modal popup
-profileSubtitleInput.value = profileSubtitle.textContent;
-profileEditBtn.addEventListener("click", () => openPopup(profileEditModal));
-profileTitleInput.value = profileTitle.textContent;
+profileEditBtn.addEventListener("click", () => {
+  // fill the form here
+  // i am not sure if im am understanding the suggestion here?
+
+  profileSubtitleInput.value = profileSubtitle.textContent;
+  profileTitleInput.value = profileTitle.textContent;
+  openPopup(profileEditModal);
+});
+
+// profileSubtitleInput.value = profileSubtitle.textContent;
+// profileEditBtn.addEventListener("click", () => openPopup(profileEditModal));
+// profileTitleInput.value = profileTitle.textContent;
+
 //profile modal close
 profileModalCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
@@ -106,7 +116,7 @@ function getCardElement(cardData) {
   cardImageEl.addEventListener("click", () => {
     modalPopup.src = cardData.link;
     modalPopupCaption.textContent = cardData.name;
-    cardImageEl.alt = "Photo of ${cardData.name}";
+    modalPicture.alt = `Photo of ${cardData.name}`;
     openPopup(modalPicture);
   });
 
@@ -170,7 +180,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   const link = cardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
-  reset()
+  evt.target.reset()
 });
 
 // ! ||--------------------------------------------------------------------------------||
