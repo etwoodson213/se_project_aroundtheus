@@ -103,6 +103,10 @@
   margin-bottom: 29.74px;
 }
 
+.modal__input:invalid {
+  border-color: #ff0000;
+}
+
 @media screen and (max-width: 621px) {
   .modal__input {
     font-size: 14px;
@@ -122,6 +126,11 @@
 
 .modal__button:hover {
   opacity: 0.8;
+}
+
+.modal__button_disabled:invalid {
+  opacity: 20%;
+  box-shadow: 0px 0px 25px 0px #00000026;
 }
 
 .modal__picture-container {

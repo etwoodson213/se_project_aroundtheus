@@ -180,7 +180,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   const link = cardLinkInput.value;
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
-  evt.target.reset()
+  evt.target.reset();
 });
 
 // ! ||--------------------------------------------------------------------------------||
@@ -203,8 +203,6 @@ const cardLikeBtn = document.querySelectorAll(".card__like-button");
 //card delete button
 const cardDeleteBtn = document.querySelectorAll(".card__delete-button");
 
-// cardDeleteBtn.forEach((button) => {
-//   cardDeleteBtn.addEventListener("click", () => {
-//     button.closest(".card__item").remove();
-//   });
-// });
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                   VALIDATION                                   ||
+// ! ||--------------------------------------------------------------------------------||
