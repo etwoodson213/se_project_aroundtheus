@@ -5,9 +5,13 @@ function setEventListeners(formElement, options) {
     const { inputSelector } = options;
     const inputElements = [...formElement.querySelectorAll(inputSelector)];
     inputElements.forEach(inputElement => {
-        inputElement.addEventListener("input", () => console.log("input changed"));
-})
-}
+        inputElement.addEventListener("input", (e) => {
+            console.log(inputElement.inputErrorClass);
+        });
+    });
+   }    
+    
+    
  
 function enableValidation(options) {
   const formElements = [...document.querySelectorAll(options.formSelector)];

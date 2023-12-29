@@ -127,7 +127,7 @@
 
     <!-- Modal Profile -->
 
-    <div class="modal" id="profile-edit-modal">
+    <div class="modal modal__background" id="profile-edit-modal">
       <div class="modal__container">
         <button
           type="button"
@@ -146,6 +146,11 @@
             class="modal__input"
             id="modal-input-title"
           />
+          <!-- error message -->
+          <span class="modal__input_type_error" hidden>
+            <p>Please fill out this field.</p>
+          </span>
+
           <input
             type="text"
             name="subtitle"
@@ -168,8 +173,13 @@
     </div>
 
     <!-- Modal Add New -->
-    <div class="modal" id="add-new-card-modal">
+    <div class="modal modal__background" id="add-new-card-modal">
       <div class="modal__container">
+        <!-- error message -->
+        <span class="modal__input_type_error" hidden>
+          <p>Please fill out this field.</p>
+        </span>
+
         <button
           type="button"
           class="modal__close"
@@ -189,7 +199,7 @@
             id="add-card-form"
           />
 
-           <input
+          <input
             type="text"
             name="link"
             placeholder="Image link"
@@ -207,7 +217,7 @@
     </div>
 
     <!-- Modal Picture Preview -->
-    <div class="modal" id="modal-picture">
+    <div class="modal modal__background" id="modal-picture">
       <div class="modal__picture-container">
         <button
           type="button"

@@ -191,6 +191,16 @@ addNewCardModal.addEventListener("submit", (evt) => {
 const modalPictureClose = document.querySelector(".modal__picture-close");
 modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 
+//overlay
+const modalBackground = document.querySelector(".modal__background");
+
+//close modal on overlay click
+  modalBackground.addEventListener("click", () => {
+    console.log("click");
+    const modal = document.querySelector(".modal_opened");
+    closePopup(modal);
+  });
+
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
 // ! ||--------------------------------------------------------------------------------||
@@ -202,7 +212,3 @@ const cardLikeBtn = document.querySelectorAll(".card__like-button");
 
 //card delete button
 const cardDeleteBtn = document.querySelectorAll(".card__delete-button");
-
-// ! ||--------------------------------------------------------------------------------||
-// ! ||                                   VALIDATION                                   ||
-// ! ||--------------------------------------------------------------------------------||
