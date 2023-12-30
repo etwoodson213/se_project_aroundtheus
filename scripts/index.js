@@ -192,14 +192,22 @@ const modalPictureClose = document.querySelector(".modal__picture-close");
 modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 
 //overlay
-const modalBackground = document.querySelector(".modal__background");
+const modals = document.querySelectorAll(".modal");
 
-//close modal on overlay click
-  modalBackground.addEventListener("click", () => {
-    console.log("click");
-    const modal = document.querySelector(".modal_opened");
-    closePopup(modal);
+//close modals on overlay click and esc
+modals.forEach((modal) => {
+  document.addEventListener("keydown", function(e) {
+    if (e.code === "Escape") {
+      closePopup(modal);
+    }
   });
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closePopup(modal);
+    }
+  });
+});
+
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
