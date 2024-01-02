@@ -136,31 +136,43 @@
         ></button>
         <form class="modal__form">
           <h3 class="modal__heading">Edit Profile</h3>
-          <input
-            type="text"
-            name="title"
-            placeholder="Name"
-            required
-            minlength="2"
-            maxlength="40"
-            class="modal__input"
-            id="modal-input-title"
-          />
-          <!-- error message -->
-          <span class="modal__input_type_error" hidden>
-            <p>Please fill out this field.</p>
-          </span>
+          <label class="modal__label">
+            <input
+              type="text"
+              name="title"
+              placeholder="Name"
+              required
+              minlength="2"
+              maxlength="40"
+              class="modal__input"
+              id="modal-input-name"
+            />
+            <!-- error message -->
+            <span class="modal__input_type_error" id="modal-input-name-error">
+              <p>Please fill out this field.</p>
+            </span>
+          </label>
 
-          <input
-            type="text"
-            name="subtitle"
-            placeholder="About"
-            required
-            minlength="2"
-            maxlength="200"
-            class="modal__input"
-            id="modal-input-subtitle"
-          />
+          <label class="modal__label">
+            <input
+              type="text"
+              name="subtitle"
+              placeholder="About"
+              required
+              minlength="2"
+              maxlength="200"
+              class="modal__input"
+              id="modal-input-subtitle"
+            />
+
+            <span
+              class="modal__input_type_error"
+              id="modal-input-subtitle-error"
+            >
+              <p>Please enter a web address.</p>
+            </span>
+          </label>
+
           <button
             type="submit"
             class="modal__button modal__button_disabled"
@@ -175,11 +187,6 @@
     <!-- Modal Add New -->
     <div class="modal" id="add-new-card-modal">
       <div class="modal__container">
-        <!-- error message -->
-        <span class="modal__input_type_error" hidden>
-          <p>Please fill out this field.</p>
-        </span>
-
         <button
           type="button"
           class="modal__close"
@@ -187,27 +194,38 @@
         ></button>
         <form class="modal__form">
           <h3 class="modal__heading">New Place</h3>
+          <label class="modal__label">
+            <input
+              type="text"
+              name="title"
+              placeholder="Name"
+              required
+              minlength="1"
+              maxlength="30"
+              class="modal__input modal__input_type_title"
+              id="add-card-form"
+            />
+            <!-- error message -->
+            <span class="modal__input_type_error">
+              <p>Please fill out this field.</p>
+            </span>
+          </label>
 
-          <input
-            type="text"
-            name="title"
-            placeholder="Name"
-            required
-            minlength="1"
-            maxlength="30"
-            class="modal__input modal__input_type_title"
-            id="add-card-form"
-          />
-
-          <input
-            type="text"
-            name="link"
-            placeholder="Image link"
-            required
-            pattern="https?://.+"
-            class="modal__input modal__input_type_link"
-            id="modal-input-link"
-          />
+          <label class="modal__label">
+            <input
+              type="text"
+              name="link"
+              placeholder="Image link"
+              required
+              pattern="https?://.+"
+              class="modal__input modal__input_type_link"
+              id="modal-input-link"
+            />
+            <!-- error message -->
+            <span class="modal__input_type_error">
+              <p>Please fill out this field.</p>
+            </span>
+          </label>
 
           <button type="submit" class="modal__button" id="modal-btn-saves">
             Save

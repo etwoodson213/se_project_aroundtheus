@@ -45,7 +45,7 @@ const profileTitle = document.querySelector(".profile__title");
 //subtitle
 const profileSubtitle = document.querySelector(".profile__subtitle");
 //edit title
-const profileTitleInput = document.querySelector("#modal-input-title");
+const profileTitleInput = document.querySelector("#modal-input-name");
 //edit subtitle
 const profileSubtitleInput = document.querySelector("#modal-input-subtitle");
 //submit button
