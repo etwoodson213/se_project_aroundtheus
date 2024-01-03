@@ -6,19 +6,37 @@ const formElement = document.querySelector(".modal__form");
 const inputElement = document.querySelector(".modal__input");
 const inputErrorElement = document.querySelector(".modal__input-error");
 const options = {};
-const errorClass = "modal__error_type-visible";
+const errorClass = "modal__input_type:invalid";
 
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                    SHOWINPUT                                   ||
+// ! ||--------------------------------------------------------------------------------||
 
-function showInputError(formElements, inputElement, options) {
+function showInputError(formSelector, inputElement, options) {
   const inputError = formSelector.querySelector(
     "#" + inputElement.id + "-error"
   );
-  inputElement.classList.add("input_error");
-  inputError.textContent = options.validationMessage;
-  inputError.classList.add(errorClass);
+  inputElement.classList.add(options.inputErrorClass);
+  inputError.textContent = inputElement.validationMessage;
+  inputError.classList.add(options.errorClass);
 }
 
-const hideInputError = (formElement, inputElement, options) => {} ;
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                    HIDEINPUT                                   ||
+// ! ||--------------------------------------------------------------------------------||
+
+const hideInputError = (formSelector, inputElement, options) => {
+  const inputError = formSelector.querySelector(
+    "#" + inputElement.id + "-error"
+  );
+  inputElement.classList.remove(options.inputErrorClass);
+  inputError.textContent = "";
+  inputError.classList.remove(options.errorClass);
+};
+
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                              CHECK INPUT VALIDITY                              ||
+// ! ||--------------------------------------------------------------------------------||
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
@@ -38,13 +56,17 @@ function setEventListeners(formElement, options) {
   });
 }
 
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                ENABLE VALIDATION                               ||
+// ! ||--------------------------------------------------------------------------------||
+
 function enableValidation(options) {
   const formElements = [...document.querySelectorAll(options.formSelector)];
-  formElements.forEach((formElement) => {
-    formElement.addEventListener("submit", (event) => {
+  formElements.forEach((formSelector) => {
+    formSelector.addEventListener("submit", (event) => {
       event.preventDefault();
     });
-    setEventListeners(formElement, options);
+    setEventListeners(formSelector, options);
   });
 }
 
@@ -53,8 +75,8 @@ const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__input_type_error-visible",
+  inputErrorClass: "modal__input_invalid",
+  errorClass: "modal__input_type_error_visible",
 };
 
 enableValidation(config);
