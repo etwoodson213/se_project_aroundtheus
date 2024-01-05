@@ -43,79 +43,7 @@
         <!-- Cards -->
 
         <section class="card page__section">
-          <ul class="card__list">
-            <!-- <li class="card__item">
-              <img
-                src="./Images/yosemite-valley.png"
-                alt="Yosemite Valley"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Yosemite Valley</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-
-            <!-- <li class="card__item">
-              <img
-                src="./Images/lake-louise.png"
-                alt="Lake Louise"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lake Louise</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-
-            <!-- <li class="card__item">
-              <img
-                src="./Images/bald-mountains.png"
-                alt="Bald Mountains"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Bald Mountains</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-
-            <!-- <li class="card__item">
-              <img
-                src="./Images/latemar.png"
-                alt="Latemar"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Latemar</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-
-            <!-- <li class="card__item">
-              <img
-                src="./Images/vanoise-national-park.png"
-                alt="Vanoise"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Vanoise National Park</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-
-            <!-- <li class="card__item">
-              <img
-                src="./Images/lago-di-braies.png"
-                alt="lago di Braies"
-                class="card__image"
-              />
-              <div class="card__description">
-                <h2 class="card__title">Lago di Braies</h2>
-                <button type="button" class="card__like-button"></button>
-              </div>
-            </li> -->
-          </ul>
+          <ul class="card__list"></ul>
         </section>
       </main>
 
@@ -149,7 +77,6 @@
             />
             <!-- error message -->
             <span class="modal__input_type_error" id="modal-input-name-error">
-              
             </span>
           </label>
 
@@ -169,7 +96,6 @@
               class="modal__input_type_error"
               id="modal-input-subtitle-error"
             >
-              
             </span>
           </label>
 
@@ -202,12 +128,14 @@
               required
               minlength="1"
               maxlength="30"
-              class="modal__input modal__input_type_title"
+              class="modal__input"
               id="add-card-form"
             />
             <!-- error message -->
-            <span class="modal__input_type_error" id="modal-input-add-error">
-              <!-- <p>Please fill out this field.</p> -->
+            <span
+              class="modal__input_type_error"
+              id="modal-add-card-form-error"
+            >
             </span>
           </label>
 
@@ -222,8 +150,8 @@
               id="modal-input-link"
             />
             <!-- error message -->
-            <span class="modal__input_type_error" id="modal-input-add-error">
-              <!-- <p>Please fill out this field.</p> -->
+            <span class="modal__input_type_error" id="modal-input-link-error">
+              <p></p>
             </span>
           </label>
 

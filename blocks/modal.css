@@ -124,7 +124,7 @@
   width: 100%;
 }
 
-.modal__input_invalid {
+.modal__input-invalid {
   border-color: #ff0000;
 }
 

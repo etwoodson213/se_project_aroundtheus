@@ -1,16 +1,21 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-const formSelector = document.querySelector(".modal__form");
+const formSelector = document.querySelector(".modal__label");
 const formElement = document.querySelector(".modal__form");
 const inputElement = document.querySelector(".modal__input");
+const modalAddNewCard = document.querySelector("#add-card-form");
 const inputErrorElement = document.querySelector(".modal__input-error");
-const options = {};
 const errorClass = "modal__input_type:invalid";
+const validationMessage = "";
+const textContent = document.querySelector(".modal__input_type_error");
+const inputErrorClass = "modal__input_invalid";
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    SHOWINPUT                                   ||
 // ! ||--------------------------------------------------------------------------------||
+
+//Modal Profile
 
 function showInputError(formSelector, inputElement, options) {
   const inputError = formSelector.querySelector(
@@ -25,18 +30,22 @@ function showInputError(formSelector, inputElement, options) {
 // ! ||                                    HIDEINPUT                                   ||
 // ! ||--------------------------------------------------------------------------------||
 
+//Modal Profile
+
 const hideInputError = (formSelector, inputElement, options) => {
   const inputError = formSelector.querySelector(
     "#" + inputElement.id + "-error"
   );
   inputElement.classList.remove(options.inputErrorClass);
-  inputError.textContent = "";
+  inputError.textContent = validationMessage;
   inputError.classList.remove(options.errorClass);
 };
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                              CHECK INPUT VALIDITY                              ||
 // ! ||--------------------------------------------------------------------------------||
+
+//Modal Validity
 
 function checkInputValidity(formElement, inputElement, options) {
   if (!inputElement.validity.valid) {
