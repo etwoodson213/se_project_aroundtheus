@@ -10,6 +10,9 @@ const errorClass = "modal__input_type:invalid";
 const validationMessage = "";
 const textContent = document.querySelector(".modal__input_type_error");
 const inputErrorClass = "modal__input_invalid";
+const inactiveButtonClass = "modal__button_disabled";
+const submitButtonSelector = "modal__button";
+
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    SHOWINPUT                                   ||
@@ -55,12 +58,35 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
+function toggleSubmitButton(
+  inputElement,
+  submitButtonSelector,
+  { inactiveButtonClass }
+) {
+  let foundInvalidInput = false;
+
+  inputElement.forEach((inputElements) => {
+    if (!inputElement.validity.valid) {
+      foundInvalidInput = true;
+    } else {
+      foundInvalidInput = false;
+    }
+  });
+
+  if (foundInvalidInput) {
+    submitButtonSelector.classList.add(inactiveButtonClass);
+    submitButtonSelector.disabled = true;
+  } else submitButtonSelector.classList.remove(inactiveButtonClass);
+  submitButtonSelector.disabled = false;
+}
+
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
+      toggleSubmitButton(inputElement, submitButtonSelector, options);
     });
   });
 }

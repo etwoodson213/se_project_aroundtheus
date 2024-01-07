@@ -149,7 +149,7 @@
   opacity: 0.8;
 }
 
-.modal__button_disabled:invalid {
+.modal__button_disabled {
   opacity: 20%;
   box-shadow: 0px 0px 25px 0px #00000026;
 }
