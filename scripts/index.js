@@ -196,7 +196,7 @@ const modals = document.querySelectorAll(".modal");
 
 //close modals on overlay click and esc
 modals.forEach((modal) => {
-  document.addEventListener("keydown", function(e) {
+  document.addEventListener("keydown", function (e) {
     if (e.code === "Escape") {
       closePopup(modal);
     }
@@ -207,7 +207,6 @@ modals.forEach((modal) => {
     }
   });
 });
-
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
