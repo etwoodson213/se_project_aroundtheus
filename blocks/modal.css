@@ -40,7 +40,7 @@
   display: block;
 }
 
-.modal__input_error {
+.modal__text_error {
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;
