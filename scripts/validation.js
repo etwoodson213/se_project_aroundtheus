@@ -1,19 +1,6 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-const formSelector = document.querySelector(".modal__label");
-const formElement = document.querySelector(".modal__form");
-const inputElement = document.querySelector(".modal__input");
-const modalAddNewCard = document.querySelector("#add-card-form");
-const inputErrorElement = document.querySelector(".modal__input-error");
-const errorClass = ".modal__input_type_error_visible";
-const validationMessage = "";
-const textContent = document.querySelector(".modal__input-error");
-const inputErrorClass = document.querySelector(".modal__input_invalid");
-const inactiveButtonClass = document.querySelector(".modal__button_disabled");
-const submitButtonClass = document.querySelector(".modal__button");
-const inputElements = document.querySelectorAll(".modal__input");
-
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    SHOWINPUT                                   ||
 // ! ||--------------------------------------------------------------------------------||
@@ -40,7 +27,7 @@ const hideInputError = (formSelector, inputElement, options) => {
     "#" + inputElement.id + "-error"
   );
   inputElement.classList.remove(options.inputErrorClass);
-  inputError.textContent = validationMessage;
+  inputError.textContent = "";
   inputError.classList.remove(options.errorClass);
 };
 

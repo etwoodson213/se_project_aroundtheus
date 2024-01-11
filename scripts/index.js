@@ -34,6 +34,18 @@ const initialCards = [
 // ! ||                                    Profile Edit Button                         ||
 // ! ||--------------------------------------------------------------------------------||
 
+const formSelector = document.querySelector(".modal__label");
+const formElement = document.querySelector(".modal__form");
+const inputElement = document.querySelector(".modal__input");
+const modalAddNewCard = document.querySelector("#add-card-form");
+const inputErrorElement = document.querySelector(".modal__input-error");
+
+const textContent = document.querySelector(".modal__input-error");
+const inputErrorClass = document.querySelector(".modal__input_invalid");
+const inactiveButtonClass = document.querySelector(".modal__button_disabled");
+const submitButtonClass = document.querySelector(".modal__button");
+const inputElements = document.querySelectorAll(".modal__input");
+
 //button open
 const profileEditBtn = document.querySelector("#profile-edit-btn");
 //wrapper
@@ -92,10 +104,12 @@ profileEditForm.addEventListener("submit", (e) => {
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalsByEsc);
 }
 
 function closePopup(modal) {
   modal.classList.remove("modal_opened");
+  document.removeEventListener("keydown", closeModalsByEsc);
 }
 
 function getCardElement(cardData) {
@@ -194,19 +208,25 @@ modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 //overlay
 const modals = document.querySelectorAll(".modal");
 
-//close modals on overlay click and esc
-modals.forEach((modal) => {
-  document.addEventListener("keydown", function (e) {
-    if (e.code === "Escape") {
-      closePopup(modal);
-    }
+//close modals on esc
+function closeModalsByEsc(e) {
+  modals.forEach((modal) => {
+    document.addEventListener("keydown", function (e) {
+      if (e.code === "Escape") {
+        closePopup(modal);
+      }
+    });
   });
+}
+
+//close modals on overlay
+function closeModalsByOverlay(modal) {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       closePopup(modal);
     }
   });
-});
+}
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
