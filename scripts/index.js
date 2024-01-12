@@ -209,15 +209,11 @@ modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 const modals = document.querySelectorAll(".modal");
 
 //close modals on esc
-function closeModalsByEsc(e) {
-  modals.forEach((modal) => {
-    document.addEventListener("keydown", function (e) {
-      if (e.code === "Escape") {
-        closePopup(modal);
-      }
-    });
-  });
-}
+  function closeModalsByEsc() { 
+    const openedModal = document.querySelector(".modal_opened")
+    closePopup(openedModal); 
+  }
+
 
 //close modals on overlay
 modals.forEach((modal) => {
