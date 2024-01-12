@@ -45,16 +45,17 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
+const inputSelector = ".modal__input";
+
+const inputs = [...formElement.querySelectorAll(inputSelector)];
+
+const checkFormValidity = inputs.every((input) => input.validity.valid);
 function toggleSubmitButton(inputElements, submitButtonClass) {
-  let foundInvalidInput = false;
+  const checkFormValidity = inputElements.every(
+    (input) => input.validity.valid
+  );
 
-  inputElements.forEach((inputElement) => {
-    if (!inputElement.validity.valid) {
-      foundInvalidInput = true;
-    }
-  });
-
-  if (foundInvalidInput) {
+  if (checkFormValidity) {
     submitButtonClass.classList.add("modal__button_disabled");
     submitButtonClass.disabled = true;
   } else {
@@ -90,7 +91,7 @@ function enableValidation(options) {
   });
 }
 
-const config = {
+const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonClass: ".modal__button",
@@ -99,4 +100,4 @@ const config = {
   errorClass: "modal__input_type_error_visible",
 };
 
-enableValidation(config);
+enableValidation(options);
