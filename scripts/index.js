@@ -220,13 +220,13 @@ function closeModalsByEsc(e) {
 }
 
 //close modals on overlay
-function closeModalsByOverlay(modal) {
+modals.forEach((modal) => {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
       closePopup(modal);
     }
   });
-}
+})
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
