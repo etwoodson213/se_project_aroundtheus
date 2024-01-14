@@ -104,6 +104,7 @@ profileEditForm.addEventListener("submit", (e) => {
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalsByEsc);
 }
 
 function closePopup(modal) {
@@ -208,15 +209,12 @@ modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 const modals = document.querySelectorAll(".modal");
 
 //close modals on esc
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    closeModalsByEsc(modals);
-  }
-});
 
-function closeModalsByEsc() {
-  const openedModal = document.querySelector(".modal_opened");
-  closePopup(openedModal);
+function closeModalsByEsc(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    closePopup(openedModal);
+  }
 }
 
 //close modals on overlay
