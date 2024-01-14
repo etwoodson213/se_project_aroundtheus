@@ -46,17 +46,19 @@ function checkInputValidity(formElement, inputElement, options) {
 }
 
 const inputSelector = ".modal__input";
-
 const inputs = [...formElement.querySelectorAll(inputSelector)];
+const checkFormValidity = (inputs) =>
+  inputs.every((input) => input.validity.valid);
 
-const checkFormValidity = inputs.every((input) => input.validity.valid);
-function toggleSubmitButton(inputElements, submitButtonClass) {
-  const checkFormValidity = inputElements.every(
-    (input) => input.validity.valid
-  );
+function toggleSubmitButton(
+  inputElements,
+  submitButtonClass,
+  inactiveButtonClass
+) {
+  const isFormValid = checkFormValidity(inputElements);
 
   if (checkFormValidity) {
-    submitButtonClass.classList.add("modal__button_disabled");
+    inactiveButtonClass.classList.add("modal__button_disabled");
     submitButtonClass.disabled = true;
   } else {
     submitButtonClass.classList.remove("modal__button_disabled");
@@ -67,7 +69,7 @@ function toggleSubmitButton(inputElements, submitButtonClass) {
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  const submitButtonClass = formElement.querySelector(".modal__button");
+  const submitButtonClass = document.querySelector(options.submitButtonClass);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {

@@ -104,7 +104,6 @@ profileEditForm.addEventListener("submit", (e) => {
 
 function openPopup(modal) {
   modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalsByEsc);
 }
 
 function closePopup(modal) {
@@ -209,11 +208,16 @@ modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 const modals = document.querySelectorAll(".modal");
 
 //close modals on esc
-  function closeModalsByEsc() { 
-    const openedModal = document.querySelector(".modal_opened")
-    closePopup(openedModal); 
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    closeModalsByEsc(modals);
   }
+});
 
+function closeModalsByEsc() {
+  const openedModal = document.querySelector(".modal_opened");
+  closePopup(openedModal);
+}
 
 //close modals on overlay
 modals.forEach((modal) => {
@@ -222,7 +226,7 @@ modals.forEach((modal) => {
       closePopup(modal);
     }
   });
-})
+});
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                   Card buttons                                 ||
