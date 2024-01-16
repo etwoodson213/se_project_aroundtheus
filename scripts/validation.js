@@ -45,36 +45,37 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
-const inputSelector = ".modal__input";
-const inputs = [...formElement.querySelectorAll(inputSelector)];
-const checkFormValidity = (inputs) =>
-  inputs.every((input) => input.validity.valid);
 
-function toggleSubmitButton(
-  inputElements,
-  submitButtonClass,
-  inactiveButtonClass
-) {
+function allInputs() {
+  const inputSelector = ".modal__input";
+
+  const inputs = [...formElement.querySelectorAll(inputSelector)];
+}
+
+const checkFormValidity = (allInputs) =>
+  allInputs.every((input) => input.validity.valid);
+
+function toggleSubmitButton(inputElements, submitButton, inactiveButtonClass) {
   const isFormValid = checkFormValidity(inputElements);
 
-  if (checkFormValidity) {
-    inactiveButtonClass.classList.add("modal__button_disabled");
-    submitButtonClass.disabled = true;
+  if (isFormValid) {
+    submitButton.classList.add(inactiveButtonClass);
+    submitButton.disabled = true;
   } else {
-    submitButtonClass.classList.remove("modal__button_disabled");
-    submitButtonClass.disabled = false;
+    submitButton.classList.remove(inactiveButtonClass);
+    submitButton.disabled = false;
   }
 }
 
 function setEventListeners(formElement, options) {
   const { inputSelector } = options;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  const submitButtonClass = document.querySelector(options.submitButtonClass);
+  const submitButton = document.querySelector(options.submitButtonClass);
 
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
-      toggleSubmitButton(inputElements, submitButtonClass);
+      toggleSubmitButton(inputElements, submitButton, inactiveButtonClass);
     });
   });
 }
