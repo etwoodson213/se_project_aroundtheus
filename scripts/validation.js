@@ -45,26 +45,40 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
+function toggleSubmitButton(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass, activeSubmitButton }
+) {
+  let foundInvalid = false;
+  inputElements.forEach((inputElement) => {
+    if (!inputElement.validity.valid) foundInvalid = true;
+  });
 
-function allInputs() {
-  const inputSelector = ".modal__input";
-
-  const inputs = [...formElement.querySelectorAll(inputSelector)];
-}
-
-const checkFormValidity = (allInputs) =>
-  allInputs.every((input) => input.validity.valid);
-
-function toggleSubmitButton(inputElements, submitButton, inactiveButtonClass) {
-  const isFormValid = checkFormValidity(inputElements);
-
-  if (isFormValid) {
+  if (foundInvalid) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
+    submitButton.classList.toggle("disabled");
   } else {
     submitButton.classList.remove(inactiveButtonClass);
     submitButton.disabled = false;
+    submitButton.classList.toggle("active");
+    submitButton.classList.add(activeSubmitButton);
   }
+
+  //   const checkFormValidity = (allInputs) =>
+  //     allInputs.every((input) => input.validity.valid);
+
+  //   const isFormValid = checkFormValidity(inputElements);
+
+  //   if (!isFormValid) {
+  //     submitButton.classList.add("disabled", "modal__button-disabled");
+  //     submitButton.disabled = true;
+  //   } else {
+  //     submitButton.classList.remove("disabled", "modal__button-disabled");
+  //     submitButton.disabled = false;
+  //     submitButton.classList.add("active");
+  //   }
 }
 
 function setEventListeners(formElement, options) {
@@ -75,7 +89,7 @@ function setEventListeners(formElement, options) {
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
-      toggleSubmitButton(inputElements, submitButton, inactiveButtonClass);
+      toggleSubmitButton(inputElements, submitButton, options);
     });
   });
 }
@@ -98,8 +112,9 @@ const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonClass: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_invalid",
+  inactiveButtonClass: "modal__button-disabled",
+  activeSubmitButton: "modal__button-active",
+  inputErrorClass: "modal__input-invalid",
   errorClass: "modal__input_type_error_visible",
 };
 

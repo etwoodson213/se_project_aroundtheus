@@ -39,10 +39,10 @@ const formElement = document.querySelector(".modal__form");
 const inputElement = document.querySelector(".modal__input");
 const modalAddNewCard = document.querySelector("#add-card-form");
 const inputErrorElement = document.querySelector(".modal__input-error");
-
 const textContent = document.querySelector(".modal__input-error");
 const inputErrorClass = document.querySelector(".modal__input_invalid");
-const inactiveButtonClass = document.querySelector(".modal__button_disabled");
+const inactiveButtonClass = document.querySelector(".modal__button-disabled");
+const activeSubmitButton = document.querySelector(".modal__button-active");
 const submitButtonClass = document.querySelector(".modal__button");
 const inputElements = document.querySelectorAll(".modal__input");
 
