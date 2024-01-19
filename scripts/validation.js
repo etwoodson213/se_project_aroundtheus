@@ -45,24 +45,21 @@ function checkInputValidity(formElement, inputElement, options) {
   }
 }
 
-function toggleSubmitButton(
-  inputElements,
-  submitButton,
-  { inactiveButtonClass, activeSubmitButton }
-) {
-  let foundInvalid = false;
-  inputElements.forEach((inputElement) => {
-    if (!inputElement.validity.valid) foundInvalid = true;
+function checkInputIsInvalid(inputElements) {
+  return inputElements.some((inputElement) => {
+    return !inputElement.validity.valid;
   });
+}
 
-  if (foundInvalid) {
+//Submit Button Toggle
+
+function toggleSubmitButton(inputElements, submitButton, inactiveButtonClass) {
+  if (checkInputIsInvalid(inputElements)) {
     submitButton.classList.add(inactiveButtonClass);
     submitButton.disabled = true;
   } else {
-    submitButton.classList.remove("disabled", inactiveButtonClass);
+    submitButton.classList.remove(inactiveButtonClass);
     submitButton.disabled = false;
-    submitButton.classList.toggle("active");
-    submitButton.classList.add(activeSubmitButton);
   }
 }
 
@@ -71,10 +68,16 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   const submitButton = formElement.querySelector(options.submitButtonClass);
 
+  toggleSubmitButton(inputElements, submitButton, options.inactiveButtonClass);
+
   inputElements.forEach((inputElement) => {
     inputElement.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputElement, options);
-      toggleSubmitButton(inputElements, submitButton, options);
+      toggleSubmitButton(
+        inputElements,
+        submitButton,
+        options.inactiveButtonClass
+      );
     });
   });
 }
