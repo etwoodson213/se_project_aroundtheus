@@ -8,7 +8,6 @@ const cardData = {
 const card = new Card(cardData, "#card-template");
 card.getView();
 
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -40,7 +39,6 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
-
 
 //name: "Lago di Braies",
 //link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg
@@ -89,8 +87,6 @@ const cardCaption = document.querySelector(".card__title");
 
 //profile modal popup
 profileEditBtn.addEventListener("click", () => {
-  // fill the form here
-  // i am not sure if im am understanding the suggestion here?
 
   profileSubtitleInput.value = profileSubtitle.textContent;
   profileTitleInput.value = profileTitle.textContent;
@@ -134,10 +130,14 @@ function getCardElement(cardData) {
   const cardLikeBtn = cardElement.querySelector(".card__like-button");
   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
 
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                               Refactroring > OOP                               ||
+// ! ||--------------------------------------------------------------------------------||
+
   // const handleLikeBtn = () => {
   //   cardLikeBtn.classList.toggle("card__like-button_active");
   // };
-  
+
   // cardLikeBtn.addEventListener("click", handleLikeBtn);
 
   // const handleDeleteBtn = () => {
@@ -145,14 +145,14 @@ function getCardElement(cardData) {
   // };
   // cardDeleteBtn.addEventListener("click", handleDeleteBtn);
 
+  // const picturePreview = () => {
+  //   modalPopup.src = cardData.link;
+  //   modalPopupCaption.textContent = cardData.name;
+  //   modalPicture.alt = `Photo of ${cardData.name}`;
+  //   openPopup(modalPicture);
+  // };
 
-  
-  cardImageEl.addEventListener("click", () => {
-    modalPopup.src = cardData.link;
-    modalPopupCaption.textContent = cardData.name;
-    modalPicture.alt = `Photo of ${cardData.name}`;
-    openPopup(modalPicture);
-  });
+  // cardImageEl.addEventListener("click", picturePreview);
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;

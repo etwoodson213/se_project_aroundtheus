@@ -1,8 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleLikeBtn) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
+    this._handleLikeBtn = handleLikeBtn;
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -28,7 +29,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        this._addNewCardModal();
+        this._picturePreview();
       });
   }
 
@@ -46,6 +47,16 @@ export default class Card {
   //delete button handler
   _handleDeleteBtn() {
     this._cardElement.remove();
+  }
+
+  //picturePreview
+  _picturePreview() {
+    //create new card modal
+    const newCardModal = document.querySelector(".modal__item").cloneNode(true);
+    //add new card modal to the DOM
+    document.body.append(newCardModal);
+    //open new card modal
+    openPopup(newCardModal);
   }
 
   // ! ||--------------------------------------------------------------------------------||
