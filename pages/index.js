@@ -145,12 +145,12 @@ function closePopup(modal) {
   // };
   // cardDeleteBtn.addEventListener("click", handleDeleteBtn);
 
-  // const picturePreview = () => {
-  //   modalPopup.src = cardData.link;
-  //   modalPopupCaption.textContent = cardData.name;
-  //   modalPicture.alt = `Photo of ${cardData.name}`;
-  //   openPopup(modalPicture);
-  // };
+  const picturePreview = () => {
+    modalPopup.src = cardData.link;
+    modalPopupCaption.textContent = cardData.name;
+    modalPicture.alt = `Photo of ${cardData.name}`;
+    openPopup(modalPicture);
+  };
 
   // cardImageEl.addEventListener("click", picturePreview);
 

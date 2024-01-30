@@ -15,6 +15,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
+        console.log("like button clicked");
         this._handleLikeBtn();
       });
 
@@ -22,6 +23,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
+        console.log("delete button clicked");
         this._handleDeleteBtn();
       });
 
@@ -29,6 +31,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
+        console.log("image clicked");
         this._picturePreview();
       });
   }
@@ -50,14 +53,16 @@ export default class Card {
   }
 
   //picturePreview
-  _picturePreview() {
-    //create new card modal
-    const newCardModal = document.querySelector(".modal").cloneNode(true);
-    //add new card modal to the DOM
-    document.body.append(newCardModal);
-    //open new card modal
-    openPopup(modal);
-  }
+  _picturePreview = () => {
+    this._cardElement.querySelector(".modal__popup");
+    // modalPopup.src = this._link;
+    this._cardElement.querySelector(".modal__popup-caption");
+    // modalPopupCaption.textContent = this._name;
+    this._cardElement.querySelector(".modal__picture");
+    // modalPicture.alt = `Photo of ${this._name}`;
+    this._cardElement.querySelector.classList.add("modal_opened");
+    this._cardElement.removeEventListener("keydown", closeModalsByEsc);
+  };
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                   Card Render                                  ||
