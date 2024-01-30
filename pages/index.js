@@ -5,9 +5,6 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getView();
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -39,6 +36,8 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
+
+
 
 //name: "Lago di Braies",
 //link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg
@@ -123,16 +122,17 @@ function closePopup(modal) {
   document.removeEventListener("keydown", closeModalsByEsc);
 }
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-  const cardLikeBtn = cardElement.querySelector(".card__like-button");
-  const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                            getCardElement Refactored                           ||
+// ! ||--------------------------------------------------------------------------------||
 
-// ! ||--------------------------------------------------------------------------------||
-// ! ||                               Refactroring > OOP                               ||
-// ! ||--------------------------------------------------------------------------------||
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+//   const cardLikeBtn = cardElement.querySelector(".card__like-button");
+//   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
+
 
   // const handleLikeBtn = () => {
   //   cardLikeBtn.classList.toggle("card__like-button_active");
@@ -154,19 +154,21 @@ function getCardElement(cardData) {
 
   // cardImageEl.addEventListener("click", picturePreview);
 
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
+  // cardImageEl.src = cardData.link;
+  // cardImageEl.alt = cardData.name;
+  // cardTitleEl.textContent = cardData.name;
 
-  return cardElement;
-}
+  // return cardElement;
+// }
 
 const modalPopup = document.querySelector(".modal__popup");
 const modalPopupCaption = document.querySelector(".modal__popup-caption");
 
 //create new card & modal picture preview
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
+  // const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card-template");
+const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 }
 

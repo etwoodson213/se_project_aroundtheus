@@ -1,9 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleLikeBtn) {
+  constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._handleLikeBtn = handleLikeBtn;
+    this._handleImageClick = handleImageClick;
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -52,11 +52,11 @@ export default class Card {
   //picturePreview
   _picturePreview() {
     //create new card modal
-    const newCardModal = document.querySelector(".modal__item").cloneNode(true);
+    const newCardModal = document.querySelector(".modal").cloneNode(true);
     //add new card modal to the DOM
     document.body.append(newCardModal);
     //open new card modal
-    openPopup(newCardModal);
+    openPopup(modal);
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -71,8 +71,12 @@ export default class Card {
       .cloneNode(true);
 
     //return card view
+    this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardElement.querySelector(".card__image").alt = this._name;
+    this._cardElement.querySelector(".card__title").textContent = this._name;
     //set event listeners
     this._setEventListeners();
     //return card
+    return this._cardElement;
   }
 }
