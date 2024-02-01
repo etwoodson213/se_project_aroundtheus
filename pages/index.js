@@ -42,7 +42,7 @@ const initialCards = [
 //name: "Lago di Braies",
 //link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg
 
-// ! ||--------------------------------------------------------------------------------||
+// ! ||-------------------------- ------------------------------------------------------||
 // ! ||                                    Profile Edit Button                         ||
 // ! ||--------------------------------------------------------------------------------||
 
@@ -144,6 +144,10 @@ function closePopup(modal) {
   //   cardDeleteBtn.closest(".card__item").remove();
   // };
   // cardDeleteBtn.addEventListener("click", handleDeleteBtn);
+
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                             Still Need to Refactor                             ||
+// ! ||--------------------------------------------------------------------------------||
 
   const picturePreview = () => {
     modalPopup.src = cardData.link;

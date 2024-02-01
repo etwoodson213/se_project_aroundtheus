@@ -1,9 +1,9 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handleImageClick) {
+  constructor({ name, link }, cardSelector, handlePreview) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._handleImageClick = handleImageClick;
+    this._handlePreview = handlePreview;
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -23,7 +23,6 @@ export default class Card {
     this._cardElement
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
-        console.log("delete button clicked");
         this._handleDeleteBtn();
       });
 
@@ -31,8 +30,7 @@ export default class Card {
     this._cardElement
       .querySelector(".card__image")
       .addEventListener("click", () => {
-        console.log("image clicked");
-        this._picturePreview();
+        this._handlePreview(this);
       });
   }
 
@@ -52,17 +50,19 @@ export default class Card {
     this._cardElement.remove();
   }
 
-  //picturePreview
-  _picturePreview = () => {
+  // ! ||--------------------------------------------------------------------------------||
+  // ! ||                             Still need to refactor                             ||
+  // ! ||--------------------------------------------------------------------------------||
+
+  //picture Preview
+  _handlePreview() {
     this._cardElement.querySelector(".modal__popup");
     // modalPopup.src = this._link;
     this._cardElement.querySelector(".modal__popup-caption");
     // modalPopupCaption.textContent = this._name;
-    this._cardElement.querySelector(".modal__picture");
-    // modalPicture.alt = `Photo of ${this._name}`;
+    this._cardElement.querySelector("#modal__picture");
     this._cardElement.querySelector.classList.add("modal_opened");
-    this._cardElement.removeEventListener("keydown", closeModalsByEsc);
-  };
+  }
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                   Card Render                                  ||
