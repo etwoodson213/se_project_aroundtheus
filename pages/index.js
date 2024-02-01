@@ -1,4 +1,17 @@
-import Card from "./Card.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
+const formValidator = new FormValidator();
+
+const options = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonClass: ".modal__button",
+  inactiveButtonClass: "modal__button-disabled",
+  activeSubmitButton: "modal__button-active",
+  inputErrorClass: "modal__input-invalid",
+  errorClass: "modal__input_type_error_visible",
+};
 
 const cardData = {
   name: "Yosemite Valley",
@@ -42,7 +55,7 @@ const initialCards = [
 //name: "Lago di Braies",
 //link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg
 
-// ! ||-------------------------- ------------------------------------------------------||
+// ! ||---------------------------------------------------------------------------------||
 // ! ||                                    Profile Edit Button                         ||
 // ! ||--------------------------------------------------------------------------------||
 
@@ -168,7 +181,9 @@ function closePopup(modal) {
 const modalPopup = document.querySelector(".modal__popup");
 const modalPopupCaption = document.querySelector(".modal__popup-caption");
 
-//create new card & modal picture preview
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                  from card.js                                  ||
+// ! ||--------------------------------------------------------------------------------||
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
   const card = new Card(cardData, "#card-template");
