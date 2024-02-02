@@ -1,7 +1,7 @@
 import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js";
+// import FormValidator from "../components/FormValidator.js";
 
-const editFormValidator = new FormValidator();
+// const editFormValidator = new FormValidator();
 
 const options = {
   formSelector: ".modal__form",
@@ -16,6 +16,7 @@ const options = {
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+
 };
 
 const initialCards = [
@@ -162,7 +163,7 @@ function closePopup(modal) {
 // ! ||                             Still Need to Refactor                             ||
 // ! ||--------------------------------------------------------------------------------||
 
-  const picturePreview = () => {
+  const handlePreview = () => {
     modalPopup.src = cardData.link;
     modalPopupCaption.textContent = cardData.name;
     modalPicture.alt = `Photo of ${cardData.name}`;
@@ -186,7 +187,7 @@ const modalPopupCaption = document.querySelector(".modal__popup-caption");
 // ! ||--------------------------------------------------------------------------------||
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handlePreview);
 const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 }

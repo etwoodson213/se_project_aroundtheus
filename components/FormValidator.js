@@ -112,4 +112,4 @@ const editFormValidator = new FormValidator(this._options, this.editFormValidato
 const addFormValidator = new FormValidator(this._options, this.addFormValidator);
 editFormValidator.enableValidation();
 
-export default FormValidator;
+// export default FormValidator;

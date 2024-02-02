@@ -3,7 +3,7 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    self._handlePreview = handlePreview;
+    this._handlePreview = handlePreview;
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -53,6 +53,7 @@ export default class Card {
       .querySelector(".card__image")
       .addEventListener("click", () => {
         this._handlePreview(this);
+        console.log("preview button clicked");
       });
   }
 
@@ -83,7 +84,7 @@ export default class Card {
     this._cardElement.querySelector(".modal__popup-caption");
     // modalPopupCaption.textContent = this._name;
     this._cardElement.querySelector("#modal__picture");
-    this._cardElement.querySelector(".modal__picture-container").classList.add("modal_opened");
+    this._cardElement.querySelector(".modal_opened");
   }
 
 }
