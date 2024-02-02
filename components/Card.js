@@ -3,8 +3,30 @@ export default class Card {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
-    this._handlePreview = handlePreview;
+    self._handlePreview = handlePreview;
   }
+
+  // ! ||--------------------------------------------------------------------------------||
+  // ! ||                                   Card Render                                  ||
+  // ! ||--------------------------------------------------------------------------------||
+
+  //create card element
+  getView() {
+    this._cardElement = document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card__item")
+      .cloneNode(true);
+
+    //return card view
+    this._cardElement.querySelector(".card__image").src = this._link;
+    this._cardElement.querySelector(".card__image").alt = this._name;
+    this._cardElement.querySelector(".card__title").textContent = this._name;
+    //set event listeners
+    this._setEventListeners();
+    //return card
+    return this._cardElement;
+  }
+
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                setEventListeners                               ||
@@ -61,27 +83,7 @@ export default class Card {
     this._cardElement.querySelector(".modal__popup-caption");
     // modalPopupCaption.textContent = this._name;
     this._cardElement.querySelector("#modal__picture");
-    this._cardElement.querySelector.classList.add("modal_opened");
+    this._cardElement.querySelector(".modal__picture-container").classList.add("modal_opened");
   }
 
-  // ! ||--------------------------------------------------------------------------------||
-  // ! ||                                   Card Render                                  ||
-  // ! ||--------------------------------------------------------------------------------||
-
-  //create card element
-  getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card__item")
-      .cloneNode(true);
-
-    //return card view
-    this._cardElement.querySelector(".card__image").src = this._link;
-    this._cardElement.querySelector(".card__image").alt = this._name;
-    this._cardElement.querySelector(".card__title").textContent = this._name;
-    //set event listeners
-    this._setEventListeners();
-    //return card
-    return this._cardElement;
-  }
 }

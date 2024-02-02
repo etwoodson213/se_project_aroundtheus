@@ -1,7 +1,7 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-const formValidator = new FormValidator();
+const editFormValidator = new FormValidator();
 
 const options = {
   formSelector: ".modal__form",
