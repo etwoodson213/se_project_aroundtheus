@@ -25,8 +25,8 @@ export default class Card {
     this._setEventListeners();
     //return card
     return this._cardElement;
-  }
 
+  }
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                setEventListeners                               ||
@@ -86,5 +86,4 @@ export default class Card {
     this._cardElement.querySelector("#modal__picture");
     this._cardElement.querySelector(".modal_opened");
   }
-
 }

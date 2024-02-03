@@ -107,3 +107,4 @@ const options = {
 };
 
 enableValidation(options);
+
