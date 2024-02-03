@@ -1,11 +1,10 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-const editFormValidator = new FormValidator();
+// const editFormValidator = new FormValidator(options, editFormValidator);
+// const addFormValidator = new FormValidator(this)(options, addFormValidator);
 
-
-
-const validationOptions = {
+const options = {
   inputSelector: ".modal__input",
   submitButtonClass: ".modal__button",
   inactiveButtonClass: "modal__button-disabled",
@@ -14,12 +13,12 @@ const validationOptions = {
   errorClass: "modal__input_type_error_visible",
 };
 
-
+// const editFormValidator = new FormValidator(options, editFormValidator);
+// const addFormValidator = new FormValidator(this)(options, addFormValidator);
 
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  
 };
 
 const initialCards = [

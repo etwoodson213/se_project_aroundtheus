@@ -1,15 +1,15 @@
 class FormValidator {
-  constructor(options, formElement) {
-    this._options = options;
-    this._formElement = formElement;
-
-    this._formSelector = options.formSelector;
+  constructor(options, formSelector) {
     this._inputSelector = options.inputSelector;
     this._submitButtonClass = options.submitButtonClass;
     this._inactiveButtonClass = options.inactiveButtonClass - disabled;
     this._activeSubmitButton = options.activeSubmitButton - active;
     this._inputErrorClass = options.inputErrorClass;
     this._errorClass = options.errorClass;
+    this._formElement = options.formElements;
+
+    this._formSelector = formSelector;
+    console.log(this);
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -108,15 +108,20 @@ class FormValidator {
   }
 }
 
-const editFormValidator = new FormValidator(
-  this._options,
-  this.editFormValidator
-);
+const options = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonClass: ".modal__button",
+  inactiveButtonClass: "modal__button-disabled",
+  activeSubmitButton: "modal__button-active",
+  inputErrorClass: "modal__input-invalid",
+  errorClass: "modal__input_type_error_visible",
+};
 
-const addFormValidator = new FormValidator.bind(this)(
-  this._options,
-  this.addFormValidator
-);
-editFormValidator.enableValidation();
+// const addFormValidator = new FormValidator.bind(this)(
+//   options,
+//   addFormValidator
+// );
+// editFormValidator.enableValidation(options, editFormValidator);
 
 export default FormValidator;
