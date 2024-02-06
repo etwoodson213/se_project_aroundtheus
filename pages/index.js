@@ -1,21 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-// const editFormValidator = new FormValidator(options, editFormValidator);
-// const addFormValidator = new FormValidator(this)(options, addFormValidator);
-
-const options = {
-  inputSelector: ".modal__input",
-  submitButtonClass: ".modal__button",
-  inactiveButtonClass: "modal__button-disabled",
-  activeSubmitButton: "modal__button-active",
-  inputErrorClass: "modal__input-invalid",
-  errorClass: "modal__input_type_error_visible",
-};
-
-// const editFormValidator = new FormValidator(options, editFormValidator);
-// const addFormValidator = new FormValidator(this)(options, addFormValidator);
-
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -71,6 +56,7 @@ const inactiveButtonClass = document.querySelector(".modal__button-disabled");
 const activeSubmitButton = document.querySelector(".modal__button-active");
 const submitButtonClass = document.querySelector(".modal__button");
 const inputElements = document.querySelectorAll(".modal__input");
+const cardSelector = "#card-template";
 
 //button open
 const profileEditBtn = document.querySelector("#profile-edit-btn");
@@ -110,15 +96,13 @@ profileEditBtn.addEventListener("click", () => {
 // profileTitleInput.value = profileTitle.textContent;
 
 //profile modal close
-profileModalCloseButton.addEventListener("click", () =>
-  closePopup(profileEditModal)
-);
+profileModalCloseButton.addEventListener("click", () => closePopup());
 //profile submit
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closePopup(profileEditModal);
+  closePopup();
 });
 
 // ! ||--------------------------------------------------------------------------------||
@@ -130,10 +114,32 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup(modal) {
-  modal.classList.remove("modal_opened");
+function closePopup() {
+  document.querySelector(".modal_opened").classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalsByEsc);
 }
+
+// ! ||--------------------------------------------------------------------------------||
+// ! ||                                 Form Validation                                ||
+// ! ||--------------------------------------------------------------------------------||
+
+const settings = {
+  inputSelector: ".modal__input",
+  submitButtonClass: ".modal__button",
+  inactiveButtonClass: "modal__button-disabled",
+  activeSubmitButton: "modal__button-active",
+  inputErrorClass: "modal__input-invalid",
+  errorClass: "modal__input_type_error_visible",
+};
+
+const editFormElement = document.querySelector(".modal__form");
+const addFormElement = document.querySelector(".modal__form");
+
+const editFormValidator = new FormValidator(settings, editFormElement);
+const addFormValidator = new FormValidator(this)(settings, addFormElement);
+
+editFormValidator.settings();
+addFormValidator.settings();
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                            getCardElement Refactored                           ||
@@ -185,7 +191,7 @@ const modalPopupCaption = document.querySelector(".modal__popup-caption");
 // ! ||--------------------------------------------------------------------------------||
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, "#card-template", handlePreview);
+  const card = new Card(cardData, cardSelector, handlePreview);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 }
