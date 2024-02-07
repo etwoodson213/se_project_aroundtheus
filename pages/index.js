@@ -136,10 +136,9 @@ const editFormElement = document.querySelector(".modal__form");
 const addFormElement = document.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(settings, editFormElement);
-const addFormValidator = new FormValidator(this)(settings, addFormElement);
-
-editFormValidator.settings();
-addFormValidator.settings();
+const addFormValidator = new FormValidator(settings, addFormElement);
+editFormValidator._enableValidation();
+addFormValidator._enableValidation();
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                            getCardElement Refactored                           ||
