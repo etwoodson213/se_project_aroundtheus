@@ -19,45 +19,43 @@ export default class FormValidator {
   // ! ||                                Show Input Error                                ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _showInputError = (_formSelector, _inputElement) => {
-    this._inputElement = this._formSelector.querySelector(".modal__input");
-
-    this._formSelector.querySelector("#" + _inputElement.id + "-error");
+  _showInputError = (formSelector, inputElement, settings) => {
+    this._formSelector.querySelector("#" + this._inputElement.id + "-error");
 
     this._inputElement.classList.add(this._inputErrorClass);
 
-    this._inputError.textContent = inputElement.validationMessage;
-    this._inputError.classList.add(this._errorClass);
+    this._inputElement.textContent = this._inputElement.validationMessage;
+    this._inputElement.classList.add(this._errorClass);
   };
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                Hide Input Error                                ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _hideInputError = (_formSelector, _inputElement, _settings) => {
-    const inputError = _formSelector.querySelector(
-      "#" + _inputElement.id + "-error"
+  _hideInputError = (formSelector, inputElement, settings) => {
+    this._inputError = this._formSelector.querySelector(
+      "#" + this._inputElement.id + "-error"
     );
-    _inputElement.classList.remove(this._settings.inputErrorClass);
+    this._inputElement.classList.remove(this._inputErrorClass);
     this._inputError.textContent = "";
-    this._inputError.classList.remove(this._settings.errorClass);
+    this._inputElement.classList.remove(this._errorClass);
   };
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                              Check Input Validity                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _checkInputValidity(_formSelector, _inputElement, _settings) {
-    if (!_inputElement.validity.valid) {
-      _showInputError(_formSelector, _inputElement, _settings);
+  _checkInputValidity(formElement, inputElement, settings) {
+    if (!inputElement.validity.valid) {
+      return this._showInputError(inputElement);
     } else {
-      this._hideInputError(_formSelector, _inputElement, _settings);
+      this._hideInputError(inputElement);
     }
   }
 
-  _checkInputIsInvalid(inputEl) {
-    return this._inputElements.some((inputEl) => {
-      return !inputEl.validity.valid;
+  _checkInputIsInvalid(inputElement) {
+    return this._inputElements.some((inputElement) => {
+      return !inputElement.validity.valid;
     });
   }
 
@@ -84,7 +82,7 @@ export default class FormValidator {
   // ! ||                               Set Event Listeners                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _setEventListeners() {
+  _setEventListeners(formSelector, settings) {
     this._inputElements = Array.from(
       this._formSelector.querySelectorAll(this._inputSelector)
     );
@@ -107,8 +105,8 @@ export default class FormValidator {
           this._settings
         );
         this._toggleSubmitButton(
-          inputElements,
-          submitButton,
+          inputElement,
+          this._submitButton,
           this._inactiveButtonClass
         );
       });
@@ -119,7 +117,7 @@ export default class FormValidator {
   // ! ||                               Enabling validation                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _enableValidation() {
+  _enableValidation(settings) {
     this._formSelector.addEventListener("submit", (event) => {
       event.preventDefault();
     });
@@ -127,4 +125,4 @@ export default class FormValidator {
   }
 }
 
-//  const editFormValidator = new FormValidator(settings, formSelector);
+// const editFormValidator = new FormValidator(settings, formSelector);

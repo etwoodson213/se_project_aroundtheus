@@ -6,33 +6,11 @@ export default class Card {
     this._handlePreview = handlePreview;
   }
 
-  // // ! ||--------------------------------------------------------------------------------||
-  // // ! ||                                   Card Render                                  ||
-  // // ! ||--------------------------------------------------------------------------------||
-
-  //create card element
-  getView() {
-    this._cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card__item")
-      .cloneNode(true);
-
-    //return card view
-    this._cardElement.querySelector(".card__image").src = this._link;
-    this._cardElement.querySelector(".card__image").alt = this._name;
-    this._cardElement.querySelector(".card__title").textContent = this._name;
-    //set event listeners
-    this._setEventListeners();
-    //return card
-    return this._cardElement;
-  }
-
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                setEventListeners                               ||
   // ! ||--------------------------------------------------------------------------------||
 
   _setEventListeners() {
-    console.log(this._cardElement);
     //".card__like-button"
     this._cardElement
       .querySelector(".card__like-button")
@@ -53,14 +31,6 @@ export default class Card {
       .addEventListener("click", () => {
         this._handlePreview(this);
       });
-
-    //"openPopup"
-    // this._cardElement.classList.add("modal_opened");
-    // this._cardElement.addEventListener("keydown", this._closeModalsByEsc);
-
-    // //"closePopup"
-    // this._cardElement.querySelector("modal_opened");
-    // this._cardElement.removeEventListener("keydown", this._closeModalsByEsc);
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -76,15 +46,15 @@ export default class Card {
 
   //delete button handler
   _handleDeleteBtn() {
-    this._cardElement.remove();
+    this._cardElement.closest(".card__item").remove();
   }
 
-  //picture Preview
-  _handlePreview = ({name, link}) => {
-    modalPopup.src = this._link;
-    modalPopupCaption.textContent = this._name;
-    modalPicture.alt = `Photo of ${this._name}`;
-  };
+  // //picture Preview - not needed in Card.js (yet)
+  // _handlePreview = ({name, link}) => {
+  //   modalPopup.src = this._link;
+  //   modalPopupCaption.textContent = this._name;
+  //   modalPicture.alt = `Photo of ${this._name}`;
+  // };
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                    Functions                                   ||
@@ -98,9 +68,9 @@ export default class Card {
     }
   }
 
-  // ! ||--------------------------------------------------------------------------------||
-  // ! ||                                   Card Render                                  ||
-  // ! ||--------------------------------------------------------------------------------||
+  // // ! ||--------------------------------------------------------------------------------||
+  // // ! ||                                   Card Render                                  ||
+  // // ! ||--------------------------------------------------------------------------------||
 
   //create card element
   getView() {

@@ -4,6 +4,21 @@ import FormValidator from "../components/FormValidator.js";
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+
+  name: "Lake Louise",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+
+  name: "Bald Mountains",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+
+  name: "Latemar",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+
+  name: "Vanoise National Park",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+
+  // name: "London",
+  // link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 
 const initialCards = [
@@ -114,7 +129,7 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup() {
+function closePopup(modal) {
   document.querySelector(".modal_opened").classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalsByEsc);
 }
@@ -163,7 +178,7 @@ addFormValidator._enableValidation();
 // cardDeleteBtn.addEventListener("click", handleDeleteBtn);
 
 // ! ||--------------------------------------------------------------------------------||
-// ! ||                             Still Need to Refactor                             ||
+// ! ||                          Handle Preview -  Refactored?                         ||
 // ! ||--------------------------------------------------------------------------------||
 
 const handlePreview = () => {
@@ -190,7 +205,7 @@ const modalPopupCaption = document.querySelector(".modal__popup-caption");
 // ! ||--------------------------------------------------------------------------------||
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, cardSelector, handlePreview);
+  const card = new Card(cardData, "#card-template", handlePreview);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
 }
@@ -272,13 +287,12 @@ modals.forEach((modal) => {
 });
 
 // ! ||--------------------------------------------------------------------------------||
-// ! ||                                   Card buttons                                 ||
+// ! ||                           Delete Buttons - Refactored                          ||
 // ! ||--------------------------------------------------------------------------------||
+// const cardItem = document.querySelector(".card__item");
 
-const cardItem = document.querySelector(".card__item");
+// //card like button
+// const cardLikeBtn = document.querySelectorAll(".card__like-button");
 
-//card like button
-const cardLikeBtn = document.querySelectorAll(".card__like-button");
-
-//card delete button
-const cardDeleteBtn = document.querySelectorAll(".card__delete-button");
+// //card delete button
+// const cardDeleteBtn = document.querySelectorAll(".card__delete-button");
