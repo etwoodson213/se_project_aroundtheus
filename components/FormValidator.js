@@ -32,7 +32,7 @@ export default class FormValidator {
   // ! ||                                Hide Input Error                                ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _hideInputError = (formSelector, inputElement, settings) => {
+  _hideInputError = () => {
     this._inputError = this._formSelector.querySelector(
       "#" + this._inputElement.id + "-error"
     );
@@ -45,15 +45,15 @@ export default class FormValidator {
   // ! ||                              Check Input Validity                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _checkInputValidity(formElement, inputElement, settings) {
-    if (!inputElement.validity.valid) {
+  _checkInputValidity(inputElement) {
+    if (this._checkInputIsInvalid) {
       return this._showInputError(inputElement);
     } else {
       this._hideInputError(inputElement);
     }
   }
 
-  _checkInputIsInvalid(inputElement) {
+  _checkInputIsInvalid() {
     return this._inputElements.some((inputElement) => {
       return !inputElement.validity.valid;
     });
@@ -65,28 +65,26 @@ export default class FormValidator {
 
   //removed inputElements from parameter list, because it is not needed.
 
-  _toggleSubmitButton(_inputElements, _submitButton, _inactiveButtonClass) {
-    _submitButton = this._formSelector.querySelector(this._submitButtonClass);
+  _toggleSubmitButton(_inputElements, submitButton, _inactiveButtonClass) {
+    submitButton = this._formSelector.querySelector(this._submitButtonClass);
     _inactiveButtonClass = this._inactiveButtonClass;
 
     if (this._checkInputIsInvalid(_inputElements)) {
-      _submitButton.classList.add(_inactiveButtonClass);
-      _submitButton.disabled = true;
+      this._disabledButton;
     } else {
-      _submitButton.classList.remove(_inactiveButtonClass);
-      _submitButton.disabled = false;
+      this._enabledButton;
     }
   }
 
   _disabledButton() {
     this._submitButton.classList.add(this._inactiveButtonClass);
     this._submitButton.disabled = true;
-}
+  }
 
-_enabledButton() {
+  _enabledButton() {
     this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
-}
+  }
 
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                               Set Event Listeners                              ||
@@ -99,6 +97,7 @@ _enabledButton() {
     this._submitButton = this._formSelector.querySelector(
       this._submitButtonClass
     );
+    //code breaks without line below
     this._inputElement = this._formSelector.querySelector(this._inputSelector);
 
     this._toggleSubmitButton(
@@ -114,11 +113,7 @@ _enabledButton() {
           inputElement,
           this._settings
         );
-        this._toggleSubmitButton(
-          inputElement,
-          this._submitButton,
-          this._inactiveButtonClass
-        );
+        this._toggleSubmitButton();
       });
     });
   }
@@ -127,7 +122,7 @@ _enabledButton() {
   // ! ||                               Enabling validation                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  _enableValidation(settings) {
+  enableValidation(settings) {
     this._formSelector.addEventListener("submit", (event) => {
       event.preventDefault();
     });

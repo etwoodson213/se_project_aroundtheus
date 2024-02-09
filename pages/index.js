@@ -152,8 +152,8 @@ const addFormElement = document.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(settings, editFormElement);
 const addFormValidator = new FormValidator(settings, addFormElement);
-editFormValidator._enableValidation();
-addFormValidator._enableValidation();
+editFormValidator.enableValidation();
+addFormValidator.enableValidation();
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                            getCardElement Refactored                           ||
@@ -186,6 +186,7 @@ const handlePreview = () => {
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
+  modalPictureClose.addEventListener("click", closePopup);
 };
 
 // cardImageEl.addEventListener("click", picturePreview);
@@ -255,6 +256,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
   evt.target.reset();
+  disabledButton(addNewCardBtn);
 });
 
 // ! ||--------------------------------------------------------------------------------||

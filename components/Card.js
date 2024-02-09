@@ -12,25 +12,23 @@ export default class Card {
 
   _setEventListeners() {
     //".card__like-button"
-    this._cardElement
-      .querySelector(".card__like-button")
-      .addEventListener("click", () => {
-        this._handleLikeBtn();
-      });
+    this._likeButton = this._cardElement.querySelector(".card__like-button");
+
+    this._likeButton.addEventListener("click", this._handleLikeBtn);
 
     //".card__delete-button"
-    this._cardElement
-      .querySelector(".card__delete-button")
-      .addEventListener("click", () => {
-        this._handleDeleteBtn();
-      });
+    this._cardDeleteButton = this._cardElement.querySelector(
+      ".card__delete-button"
+    );
+
+    this._cardDeleteButton.addEventListener("click", this._handleDeleteBtn);
 
     //".card__image"
-    this._cardElement
-      .querySelector(".card__image")
-      .addEventListener("click", () => {
-        this._handlePreview(this);
-      });
+    this._cardImage = this._cardElement.querySelector(".card__image");
+
+    this._cardImage.addEventListener("click", () => {
+      this._handlePreview(this);
+    });
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -38,15 +36,16 @@ export default class Card {
   // ! ||--------------------------------------------------------------------------------||
 
   //like button handler
-  _handleLikeBtn() {
+  _handleLikeBtn = () => {
     this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
-  }
+  };
 
   //delete button handler
   _handleDeleteBtn() {
-    this._cardElement.closest(".card__item").remove();
+    this._cardElement.remove(".card__item");
+    this._cardElement = null;
   }
 
   // //picture Preview - not needed in Card.js (yet)
@@ -56,17 +55,6 @@ export default class Card {
   //   modalPicture.alt = `Photo of ${this._name}`;
   // };
 
-  // ! ||--------------------------------------------------------------------------------||
-  // ! ||                                    Functions                                   ||
-  // ! ||--------------------------------------------------------------------------------||
-
-  //close modals w/ esc
-  _closeModalsByEsc(evt) {
-    if (evt.key === "Escape") {
-      const openedModal = this._cardElement.querySelector(".modal_opened");
-      closePopup(openedModal);
-    }
-  }
 
   // // ! ||--------------------------------------------------------------------------------||
   // // ! ||                                   Card Render                                  ||
