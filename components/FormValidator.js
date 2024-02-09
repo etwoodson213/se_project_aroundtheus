@@ -65,24 +65,24 @@ export default class FormValidator {
 
   //removed inputElements from parameter list, because it is not needed.
 
-  _toggleSubmitButton(_inputElements, submitButton, _inactiveButtonClass) {
+  _toggleSubmitButton(_inputElements, submitButton, inactiveButtonClass) {
     submitButton = this._formSelector.querySelector(this._submitButtonClass);
-    _inactiveButtonClass = this._inactiveButtonClass;
+    inactiveButtonClass = this._inactiveButtonClass;
 
-    if (this._checkInputIsInvalid(_inputElements)) {
-      this._disabledButton;
+    if (this._checkInputIsInvalid(this._inputElements)) {
+      return this._disabledButton;
     } else {
       this._enabledButton;
     }
   }
 
   _disabledButton() {
-    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.classList.add(inactiveButtonClass);
     this._submitButton.disabled = true;
   }
 
   _enabledButton() {
-    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.classList.remove(inactiveButtonClass);
     this._submitButton.disabled = false;
   }
 
@@ -122,12 +122,10 @@ export default class FormValidator {
   // ! ||                               Enabling validation                              ||
   // ! ||--------------------------------------------------------------------------------||
 
-  enableValidation(settings) {
+  enableValidation() {
     this._formSelector.addEventListener("submit", (event) => {
       event.preventDefault();
     });
     this._setEventListeners(this._formSelector, this._settings);
   }
 }
-
-// const editFormValidator = new FormValidator(settings, formSelector);
