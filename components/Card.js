@@ -44,7 +44,7 @@ export default class Card {
 
   //delete button handler
   _handleDeleteBtn() {
-    this._cardElement.remove(".card__item");
+    this._cardElement.remove();
     this._cardElement = null;
   }
 
