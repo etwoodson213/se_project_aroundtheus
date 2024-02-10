@@ -186,7 +186,6 @@ const handlePreview = () => {
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
-  modalPictureClose.addEventListener("click", closePopup);
 };
 
 // cardImageEl.addEventListener("click", picturePreview);
@@ -256,7 +255,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
   evt.target.reset();
-  disabledButton(addNewCardBtn);
+  toggleSubmitButton(addCardFormElement);
 });
 
 // ! ||--------------------------------------------------------------------------------||
