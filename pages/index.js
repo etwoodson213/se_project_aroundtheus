@@ -255,7 +255,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
   evt.target.reset();
-  toggleSubmitButton(addCardFormElement);
+  addFormValidator.toggleSubmitButton()
 });
 
 // ! ||--------------------------------------------------------------------------------||
