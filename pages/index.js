@@ -1,20 +1,20 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  name: "Lake Louise",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  name: "Bald Mountains",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  name: "Latemar",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  name: "Vanoise National Park",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  name: "London",
-  link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-};
+// const cardData = {
+//   name: "Yosemite Valley",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+//   name: "Lake Louise",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+//   name: "Bald Mountains",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+//   name: "Latemar",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+//   name: "Vanoise National Park",
+//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+//   name: "London",
+//   link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+// };
 
 const initialCards = [
   {
@@ -125,7 +125,7 @@ function openPopup(modal) {
 }
 
 function closePopup() {
-  document.querySelector(".modal_opened").classList.remove("modal_opened");
+  modalPicture.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalsByEsc);
   console.log("modal closed");
 }
@@ -143,8 +143,8 @@ const settings = {
   errorClass: "modal__input_type_error_visible",
 };
 
-const editFormElement = document.querySelector(".modal__form");
-const addFormElement = document.querySelector(".modal__form");
+const editFormElement = profileEditModal.querySelector(".modal__form");
+const addFormElement = profileEditModal.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(settings, editFormElement);
 const addFormValidator = new FormValidator(settings, addFormElement);
@@ -178,29 +178,25 @@ const cardElement = cardTemplate.cloneNode(true);
 const cardImageEl = cardElement.querySelector(".card__image");
 const cardTitleEl = cardElement.querySelector(".card__title");
 
-const handlePreview = () => {
+const handlePreview = (cardData) => {
   modalPopup.src = cardData.link;
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
-  // console.log("modal opened");
-
-  cardImageEl.addEventListener("click", handlePreview);
-  console.log("card image clicked");
+  cardImageEl.addEventListener("click", initialCards);
 
   cardImageEl.src = cardData.link;
   cardImageEl.alt = cardData.name;
   cardTitleEl.textContent = cardData.name;
 };
 
-const modalPopup = document.querySelector(".modal__popup");
+const modalPopup = modalPicture.querySelector(".modal__popup");
 const modalPopupCaption = document.querySelector(".modal__popup-caption");
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                  from card.js                                  ||
 // ! ||--------------------------------------------------------------------------------||
 function renderCard(cardData) {
-  // const cardElement = getCardElement(cardData);
   const card = new Card(cardData, "#card-template", handlePreview);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
