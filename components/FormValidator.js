@@ -7,6 +7,7 @@ export default class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._activeSubmitButton = settings.activeSubmitButton;
     this._inputErrorClass = settings.inputErrorClass;
+    this._inputErrorElement = settings.inputErrorElement;
     this._errorClass = settings.errorClass;
     this._setEventListeners = this._setEventListeners.bind(this);
   }
@@ -15,15 +16,14 @@ export default class FormValidator {
   // ! ||                                Show Input Error                                ||
   // ! ||--------------------------------------------------------------------------------||
 
-  // inputError = this._formElement.querySelector("#" + this._inputElement.id + "-error");
-
   _showInputError = (inputElement) => {
     const inputError = this._formElement.querySelector(
       "#" + inputElement.id + "-error"
     );
     inputElement.classList.add(this._inputErrorClass);
-
+      
     inputError.textContent = inputElement.validationMessage;
+
     inputError.classList.add(this._errorClass);
   };
 
@@ -38,7 +38,7 @@ export default class FormValidator {
 
     inputElement.classList.remove(this._inputErrorClass);
 
-    this._inputError.textContent = "";
+    inputError.textContent = "";
 
     inputError.classList.remove(this._errorClass);
   };
@@ -56,7 +56,7 @@ export default class FormValidator {
   }
 
   _checkInputIsInvalid() {
-    return this._inputElements.some((inputElement) => {
+    this._inputElements.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
@@ -67,7 +67,7 @@ export default class FormValidator {
 
   //removed inputElements from parameter list, because it is not needed.
 
-  _toggleSubmitButton() {
+  toggleSubmitButton() {
     if (this._checkInputIsInvalid()) {
       this._disabledButton();
     } else {
@@ -97,16 +97,10 @@ export default class FormValidator {
       this._submitButtonClass
     );
 
-    this._toggleSubmitButton(
-      this._inputElements,
-      this._submitButton,
-      this._inactiveButtonClass
-    );
-
     this._inputElements.forEach((inputElement) => {
-      inputElement.addEventListener("input", (e) => {
+      inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleSubmitButton();
+        this.toggleSubmitButton();
       });
     });
   }

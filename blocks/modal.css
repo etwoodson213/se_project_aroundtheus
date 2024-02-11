@@ -181,6 +181,7 @@
   max-height: 75vh;
   width: 433px;
   height: 533px;
+  z-index: 998;
 }
 
 @media screen and (min-width: 1081px) {

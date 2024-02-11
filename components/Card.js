@@ -13,21 +13,18 @@ export default class Card {
   _setEventListeners() {
     //".card__like-button"
     this._likeButton = this._cardElement.querySelector(".card__like-button");
-
     this._likeButton.addEventListener("click", this._handleLikeBtn);
 
     //".card__delete-button"
     this._cardDeleteButton = this._cardElement.querySelector(
       ".card__delete-button"
     );
-
     this._cardDeleteButton.addEventListener("click", this._handleDeleteBtn);
 
     //".card__image"
     this._cardImage = this._cardElement.querySelector(".card__image");
-
     this._cardImage.addEventListener("click", () => {
-      this._handlePreview(this);
+      this._handlePreview();
     });
   }
 

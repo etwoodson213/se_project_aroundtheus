@@ -4,21 +4,16 @@ import FormValidator from "../components/FormValidator.js";
 const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-
   name: "Lake Louise",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-
   name: "Bald Mountains",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-
   name: "Latemar",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-
   name: "Vanoise National Park",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-
-  // name: "London",
-  // link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  name: "London",
+  link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
 };
 
 const initialCards = [
@@ -66,7 +61,7 @@ const inputElement = document.querySelector(".modal__input");
 const modalAddNewCard = document.querySelector("#add-card-form");
 const inputErrorElement = document.querySelector(".modal__input-error");
 const textContent = document.querySelector(".modal__input-error");
-const inputErrorClass = document.querySelector(".modal__input_invalid");
+const inputErrorClass = document.querySelector(".modal__input-invalid");
 const inactiveButtonClass = document.querySelector(".modal__button-disabled");
 const activeSubmitButton = document.querySelector(".modal__button-active");
 const submitButtonClass = document.querySelector(".modal__button");
@@ -129,9 +124,10 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup(modal) {
+function closePopup() {
   document.querySelector(".modal_opened").classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalsByEsc);
+  console.log("modal closed");
 }
 
 // ! ||--------------------------------------------------------------------------------||
@@ -160,9 +156,6 @@ addFormValidator.enableValidation();
 // ! ||--------------------------------------------------------------------------------||
 
 // function getCardElement(cardData) {
-//   const cardElement = cardTemplate.cloneNode(true);
-//   const cardImageEl = cardElement.querySelector(".card__image");
-//   const cardTitleEl = cardElement.querySelector(".card__title");
 //   const cardLikeBtn = cardElement.querySelector(".card__like-button");
 //   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
 
@@ -181,21 +174,24 @@ addFormValidator.enableValidation();
 // ! ||                          Handle Preview -  Refactored?                         ||
 // ! ||--------------------------------------------------------------------------------||
 
+const cardElement = cardTemplate.cloneNode(true);
+const cardImageEl = cardElement.querySelector(".card__image");
+const cardTitleEl = cardElement.querySelector(".card__title");
+
 const handlePreview = () => {
   modalPopup.src = cardData.link;
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
+  // console.log("modal opened");
+
+  cardImageEl.addEventListener("click", handlePreview);
+  console.log("card image clicked");
+
+  cardImageEl.src = cardData.link;
+  cardImageEl.alt = cardData.name;
+  cardTitleEl.textContent = cardData.name;
 };
-
-// cardImageEl.addEventListener("click", picturePreview);
-
-// cardImageEl.src = cardData.link;
-// cardImageEl.alt = cardData.name;
-// cardTitleEl.textContent = cardData.name;
-
-// return cardElement;
-// }
 
 const modalPopup = document.querySelector(".modal__popup");
 const modalPopupCaption = document.querySelector(".modal__popup-caption");
@@ -255,7 +251,7 @@ addNewCardModal.addEventListener("submit", (evt) => {
   renderCard({ name, link }, cardListEl);
   closePopup(addNewCardModal);
   evt.target.reset();
-  addFormValidator.toggleSubmitButton()
+  addFormValidator.toggleSubmitButton();
 });
 
 // ! ||--------------------------------------------------------------------------------||
@@ -270,7 +266,6 @@ modalPictureClose.addEventListener("click", () => closePopup(modalPicture));
 const modals = document.querySelectorAll(".modal");
 
 //close modals on esc
-
 function closeModalsByEsc(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
@@ -278,7 +273,7 @@ function closeModalsByEsc(evt) {
   }
 }
 
-//close modals on overlay
+//close modals on overlay click
 modals.forEach((modal) => {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) {
