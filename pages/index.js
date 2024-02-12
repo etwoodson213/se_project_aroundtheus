@@ -166,17 +166,13 @@ const cardTitleEl = cardElement.querySelector(".card__title");
 const modalPopup = modalPicture.querySelector(".modal__popup");
 const modalPopupCaption = modalPicture.querySelector(".modal__popup-caption");
 
-const handlePreview = (cardData) => {
-  console.log(modalPopup.src);
-  console.log(cardData.link);
+function handlePreview(cardData) {
   modalPopup.src = cardData.link;
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
-};
+}
 
-// const modalPopup = modalPicture.querySelector(".modal__popup");
-// const modalPopupCaption = modalPicture.querySelector(".modal__popup-caption");
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                  from card.js                                  ||
