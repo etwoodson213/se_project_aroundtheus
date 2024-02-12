@@ -1,7 +1,7 @@
 export default class Card {
-  constructor({ name, link }, cardSelector, handlePreview) {
-    this._name = name;
-    this._link = link;
+  constructor(cardData, cardSelector, handlePreview) {
+    this._name = cardData.name;
+    this._link = cardData.link;
     this._cardSelector = cardSelector;
     this._handlePreview = handlePreview;
   }
@@ -24,7 +24,7 @@ export default class Card {
     //".card__image"
     this._cardImage = this._cardElement.querySelector(".card__image");
     this._cardImage.addEventListener("click", () => {
-      this._handlePreview(this._name, this._link);
+      this._handlePreview(this);
     });
   }
 
@@ -51,7 +51,6 @@ export default class Card {
   //   modalPopupCaption.textContent = this._name;
   //   modalPicture.alt = `Photo of ${this._name}`;
   // };
-
 
   // // ! ||--------------------------------------------------------------------------------||
   // // ! ||                                   Card Render                                  ||

@@ -1,20 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-// const cardData = {
-//   name: "Yosemite Valley",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-//   name: "Lake Louise",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-//   name: "Bald Mountains",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-//   name: "Latemar",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-//   name: "Vanoise National Park",
-//   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-//   name: "London",
-//   link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-// };
 
 const initialCards = [
   {
@@ -177,26 +163,25 @@ addFormValidator.enableValidation();
 const cardElement = cardTemplate.cloneNode(true);
 const cardImageEl = cardElement.querySelector(".card__image");
 const cardTitleEl = cardElement.querySelector(".card__title");
+const modalPopup = modalPicture.querySelector(".modal__popup");
+const modalPopupCaption = modalPicture.querySelector(".modal__popup-caption");
 
 const handlePreview = (cardData) => {
+  console.log(modalPopup.src);
+  console.log(cardData.link);
   modalPopup.src = cardData.link;
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
   openPopup(modalPicture);
-  cardImageEl.addEventListener("click", initialCards);
-
-  cardImageEl.src = cardData.link;
-  cardImageEl.alt = cardData.name;
-  cardTitleEl.textContent = cardData.name;
 };
 
-const modalPopup = modalPicture.querySelector(".modal__popup");
-const modalPopupCaption = document.querySelector(".modal__popup-caption");
+// const modalPopup = modalPicture.querySelector(".modal__popup");
+// const modalPopupCaption = modalPicture.querySelector(".modal__popup-caption");
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                  from card.js                                  ||
 // ! ||--------------------------------------------------------------------------------||
-function renderCard(cardData) {
+function renderCard(cardData, cardListEl) {
   const card = new Card(cardData, "#card-template", handlePreview);
   const cardElement = card.getView();
   cardListEl.prepend(cardElement);
