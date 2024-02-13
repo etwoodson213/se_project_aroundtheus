@@ -110,8 +110,8 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup() {
-  modalPicture.classList.remove("modal_opened");
+function closePopup(modal) {
+  document.querySelector(".modal_opened").classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalsByEsc);
   console.log("modal closed");
 }
