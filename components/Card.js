@@ -40,7 +40,7 @@ export default class Card {
   };
 
   //delete button handler
-  _handleDeleteBtn() {
+  _handleDeleteBtn = () => {
     this._cardElement.remove();
     this._cardElement = null;
   }

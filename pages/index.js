@@ -53,6 +53,7 @@ const activeSubmitButton = document.querySelector(".modal__button-active");
 const submitButtonClass = document.querySelector(".modal__button");
 const inputElements = document.querySelectorAll(".modal__input");
 const cardSelector = "#card-template";
+const modalEditForm = document.querySelector("#profile-edit-form");
 
 //button open
 const profileEditBtn = document.querySelector("#profile-edit-btn");
@@ -110,12 +111,10 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup(modal) {
+function closePopup() { 
   document.querySelector(".modal_opened").classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalsByEsc);
-  console.log("modal closed");
+  document.removeEventListener("keydown", closeModalsByEsc); 
 }
-
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                 Form Validation                                ||
 // ! ||--------------------------------------------------------------------------------||

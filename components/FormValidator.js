@@ -1,7 +1,5 @@
 export default class FormValidator {
   constructor(settings, formElement) {
-    this._formElement = formElement;
-
     this._inputSelector = settings.inputSelector;
     this._submitButtonClass = settings.submitButtonClass;
     this._inactiveButtonClass = settings.inactiveButtonClass;
@@ -10,6 +8,8 @@ export default class FormValidator {
     this._inputErrorElement = settings.inputErrorElement;
     this._errorClass = settings.errorClass;
     this._setEventListeners = this._setEventListeners.bind(this);
+
+    this._formElement = formElement;
   }
 
   // ! ||--------------------------------------------------------------------------------||
@@ -21,7 +21,7 @@ export default class FormValidator {
       "#" + inputElement.id + "-error"
     );
     inputElement.classList.add(this._inputErrorClass);
-      
+
     inputError.textContent = inputElement.validationMessage;
 
     inputError.classList.add(this._errorClass);
