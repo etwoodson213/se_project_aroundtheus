@@ -48,7 +48,7 @@ export default class FormValidator {
   // ! ||--------------------------------------------------------------------------------||
 
   _checkInputValidity(inputElement) {
-    if (this._checkInputIsInvalid) {
+    if (!inputElement.validity.valid) {
       return this._showInputError(inputElement);
     } else {
       this._hideInputError(inputElement);
@@ -56,7 +56,7 @@ export default class FormValidator {
   }
 
   _checkInputIsInvalid() {
-    this._inputElements.some((inputElement) => {
+    return this._inputElements.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
@@ -65,7 +65,15 @@ export default class FormValidator {
   // ! ||                          Toggle Submit Button Function                         ||
   // ! ||--------------------------------------------------------------------------------||
 
-  //removed inputElements from parameter list, because it is not needed.
+  _disabledButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disable = true;
+  }
+
+  _enabledButton() {
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disable = false;
+  }
 
   toggleSubmitButton() {
     if (this._checkInputIsInvalid()) {
@@ -73,16 +81,6 @@ export default class FormValidator {
     } else {
       this._enabledButton();
     }
-  }
-
-  _disabledButton() {
-    this._submitButton.classList.add(this._inactiveButtonClass);
-    this._submitButton.disabled = true;
-  }
-
-  _enabledButton() {
-    this._submitButton.classList.remove(this._inactiveButtonClass);
-    this._submitButton.disabled = false;
   }
 
   // ! ||--------------------------------------------------------------------------------||

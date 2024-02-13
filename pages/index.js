@@ -47,7 +47,7 @@ const modalAddNewCard = document.querySelector("#add-card-form");
 const inputErrorElement = document.querySelector(".modal__input-error");
 const textContent = document.querySelector(".modal__input-error");
 const inputErrorClass = document.querySelector(".modal__input-invalid");
-const inactiveButtonClass = document.querySelector(".modal__button-disabled");
+const inactiveButtonClass = document.querySelector(".modal__button_disabled");
 const activeSubmitButton = document.querySelector(".modal__button-active");
 const submitButtonClass = document.querySelector(".modal__button");
 const inputElements = document.querySelectorAll(".modal__input");
@@ -90,10 +90,6 @@ profileEditBtn.addEventListener("click", () => {
   openPopup(profileEditModal);
 });
 
-// profileSubtitleInput.value = profileSubtitle.textContent;
-// profileEditBtn.addEventListener("click", () => openPopup(profileEditModal));
-// profileTitleInput.value = profileTitle.textContent;
-
 //profile modal close
 profileModalCloseButton.addEventListener("click", () => closePopup());
 //profile submit
@@ -124,7 +120,7 @@ function closePopup() {
 const settings = {
   inputSelector: ".modal__input",
   submitButtonClass: ".modal__button",
-  inactiveButtonClass: "modal__button-disabled",
+  inactiveButtonClass: "modal__button_disabled",
   activeSubmitButton: "modal__button-active",
   inputErrorClass: "modal__input-invalid",
   errorClass: "modal__input_type_error_visible",
@@ -137,25 +133,6 @@ const editFormValidator = new FormValidator(settings, editFormElement);
 const addFormValidator = new FormValidator(settings, addFormElement);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
-
-// ! ||--------------------------------------------------------------------------------||
-// ! ||                            getCardElement Refactored                           ||
-// ! ||--------------------------------------------------------------------------------||
-
-// function getCardElement(cardData) {
-//   const cardLikeBtn = cardElement.querySelector(".card__like-button");
-//   const cardDeleteBtn = cardElement.querySelector(".card__delete-button");
-
-// const handleLikeBtn = () => {
-//   cardLikeBtn.classList.toggle("card__like-button_active");
-// };
-
-// cardLikeBtn.addEventListener("click", handleLikeBtn);
-
-// const handleDeleteBtn = () => {
-//   cardDeleteBtn.closest(".card__item").remove();
-// };
-// cardDeleteBtn.addEventListener("click", handleDeleteBtn);
 
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                          Handle Preview -  Refactored?                         ||
