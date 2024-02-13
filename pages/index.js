@@ -1,7 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 
-
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -54,6 +53,9 @@ const submitButtonClass = document.querySelector(".modal__button");
 const inputElements = document.querySelectorAll(".modal__input");
 const cardSelector = "#card-template";
 const modalEditForm = document.querySelector("#profile-edit-form");
+
+//wrapper
+const addNewCardModal = document.querySelector("#add-new-card-modal");
 
 //button open
 const profileEditBtn = document.querySelector("#profile-edit-btn");
@@ -111,9 +113,9 @@ function openPopup(modal) {
   document.addEventListener("keydown", closeModalsByEsc);
 }
 
-function closePopup() { 
+function closePopup() {
   document.querySelector(".modal_opened").classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalsByEsc); 
+  document.removeEventListener("keydown", closeModalsByEsc);
 }
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                 Form Validation                                ||
@@ -129,7 +131,7 @@ const settings = {
 };
 
 const editFormElement = profileEditModal.querySelector(".modal__form");
-const addFormElement = profileEditModal.querySelector(".modal__form");
+const addFormElement = addNewCardModal.querySelector(".modal__form");
 
 const editFormValidator = new FormValidator(settings, editFormElement);
 const addFormValidator = new FormValidator(settings, addFormElement);
@@ -172,7 +174,6 @@ function handlePreview(cardData) {
   openPopup(modalPicture);
 }
 
-
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                  from card.js                                  ||
 // ! ||--------------------------------------------------------------------------------||
@@ -195,8 +196,8 @@ initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 //button open
 const addNewCardBtn = document.querySelector(".profile__add-button");
 
-//wrapper
-const addNewCardModal = document.querySelector("#add-new-card-modal");
+// //wrapper
+// const addNewCardModal = document.querySelector("#add-new-card-modal");
 
 //button close
 const cardModalCloseBtn = addNewCardModal.querySelector(
