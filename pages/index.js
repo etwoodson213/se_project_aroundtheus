@@ -1,5 +1,6 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import Popup from "../components/Popup.js";
 
 const initialCards = [
   {
@@ -32,9 +33,6 @@ const initialCards = [
     link: "https://images.unsplash.com/photo-1696589723662-37ff13c609e9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
-
-//name: "Lago di Braies",
-//link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg
 
 // ! ||---------------------------------------------------------------------------------||
 // ! ||                                    Profile Edit Button                         ||
@@ -103,16 +101,19 @@ profileEditForm.addEventListener("submit", (e) => {
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                    Functions                                   ||
 // ! ||--------------------------------------------------------------------------------||
+const popup = new Popup({ popupSelector: '.modal' });
 
-function openPopup(modal) {
-  modal.classList.add("modal_opened");
-  document.addEventListener("keydown", closeModalsByEsc);
-}
+popup.handlePreview(cardData);
+// function openPopup(modal) {
+//   modal.classList.add("modal_opened");
+//   document.addEventListener("keydown", closeModalsByEsc);
+// }
 
-function closePopup() {
-  document.querySelector(".modal_opened").classList.remove("modal_opened");
-  document.removeEventListener("keydown", closeModalsByEsc);
-}
+// function closePopup() {
+//   document.querySelector(".modal_opened").classList.remove("modal_opened");
+//   document.removeEventListener("keydown", closeModalsByEsc);
+// }
+
 // ! ||--------------------------------------------------------------------------------||
 // ! ||                                 Form Validation                                ||
 // ! ||--------------------------------------------------------------------------------||
@@ -148,7 +149,7 @@ function handlePreview(cardData) {
   modalPopup.src = cardData.link;
   modalPopupCaption.textContent = cardData.name;
   modalPicture.alt = `Photo of ${cardData.name}`;
-  openPopup(modalPicture);
+  popup(modalPicture);
 }
 
 // ! ||--------------------------------------------------------------------------------||
